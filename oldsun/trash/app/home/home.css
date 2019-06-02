@@ -1,0 +1,81 @@
+
+.list-btn{
+    background:inherit;
+    color:inherit;
+    border:none;
+}
+.nav-header{
+    position:fixed;
+    z-index:1;
+    top:0px;
+    width:100%;
+    background:#175199;
+    color:white;
+    padding-top:1em;
+    padding-bottom:1em;
+}
+#nav-menu{
+    margin-top:4.2em;
+}
+#blog-list-menu{
+    background:#175199;
+    color:white;
+}
+#blog-list-menu a{
+    color:white;
+}
+.blog-list-menu-item{
+    padding:0.2em 2em 0.2em 2em;
+}
+#article-list-container{
+    padding-top:7em;
+}
+.blog-mask{
+    max-height:20em;
+    overflow:hidden;
+}
+.fold-ctrl{
+    position:relative;
+    top:-3em;
+    color:#175199;
+    font-weight:700;
+    background:white;
+    background: -webkit-gradient(linear, 0 0, 0 20%, from(rgba(255, 255, 255, 0)), to(#fff));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#ffffff, GradientType=0);
+    height:3em;
+    margin-bottom:-3em;
+}
+.fold-on{
+
+}
+
+#nav-page{
+    background: rgba(14,16,15,0.95);
+    text-align:center;
+}
+#nav-page #link-box{
+    width:100%;
+    position:absolute;
+    top:30%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+.nav-page-item{
+    font-size:1.6em;
+    font-weight:100;
+    padding:0.2em 0.3em;
+    border:solid white 1px;
+    border:none;
+    border-radius:0.8em;
+    margin:0.2em 1em;
+}
+#nav-page .close-icon{
+    position:fixed;
+    top:20%;
+    display:inline-block;
+    right:10%;
+}

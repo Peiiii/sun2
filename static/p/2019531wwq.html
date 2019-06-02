@@ -1,0 +1,1172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wwq</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<!--<link rel="stylesheet" href="/css/bootstrap.css">-->
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<style>
+
+:root{
+--dblue:#0b65c5;
+--blue1:#175199;
+}
+.f-left{float:left}
+.f-right{float:right}
+.a-plain{
+    color:inherit;
+}
+
+.text-align-left{text-align:left;}
+.text-align-center{text-align:center;}
+.text-align-right{text-align:right;}
+
+.hidden{
+    display:none;
+}
+/*display*/
+.d-inline-block{display:inline-block;}
+.d-inline{display:inline;}
+.d-block{display:block;}
+/**/
+/*background*/
+.bg-black{background:black;}
+.bg-gray{background:gray;}
+.bg-green{background:green;}
+.bg-333{background:#333;}
+.bg-book{background:#e8e5d4;}
+/*color*/
+.c-white{ color:white;}
+.c-book{color:#343530;}
+/*height*/
+.h-10{height:10rem;}
+.h-p100{height:100%;}
+.h-p50{height:50%;}
+/*width*/
+.w-p50{width:50%;}
+.w-p100{width:100%;}
+.w-10{width:10rem;}
+/*size*/
+.size-p100{width:100%;height:100%;}
+/*align*/
+.align-center{text-align:center;}
+/**/
+/**/
+/*padding*/
+.pad-0{padding:0em;}
+/*margin*/
+/*border*/
+
+/*position*/
+.fixed-fillscreen{position:fixed;top:0rem;bottom:0rem;left:0rem;right:0rem;}
+/*other*/
+.clear,clearfix{clear:both;}
+.hidden{
+    display:none;
+}
+
+/*临时添加*/
+blockquote{
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+    margin-top:0px;
+    margin-bottom:16px;
+}</style>
+<style>
+.icon-moon{
+    width:30px;
+    height:30px;
+    display:inline-block;
+    background:url(/imgs/icons/moon.png);
+}
+.hover-rotate:hover{
+    transform:rotate(360deg);
+    transition:a
+}</style>
+<style>.nav-list{
+    list-style:none;
+    float:right;
+    margin:-5px 15px 0px 10px;
+}
+.nav-list .nav-icon:hover{
+    transform:scale(1.3);
+}
+.nav-list .nav-icon a{
+    background:inherit;
+    color:inherit;
+}
+.nav-icon{
+    position: relative;
+    display: inline-block;
+    border: 1px solid;
+    border-color: rgba(255,255,255,0.35) rgba(255,255,255,0.45) rgba(255,255,255,0.55);
+    border-radius: 100%;
+    padding: 2px 6px;
+    margin: 0 .25em;
+    font-size: 12px;
+    font-size: 1.2rem;
+    letter-spacing: .5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 3px 18px rgba(0,0,0,0.2);
+    color: rgba(255,255,255,0.8);
+    transition: .2s;
+    cursor: pointer;
+    width:36px;
+    height:36px;
+}
+.nav-icon-bars{margin:-5px 15px 0px 10px;}
+
+
+@media(max-width:500px){
+.sm-hidden{display:none ! important;}
+}
+@media(min-width:500px){
+.pc-hidden{display:none ! important;}
+}</style>
+
+<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+<script src="/js/popper.min.js"></script>
+<!--<script src="/js/bootstrap.min.js"></script>-->
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>//base : jsquery,boostrap(only show and hide)
+dev=true;
+hi='hi';
+hi1='hi1';
+hi2='hi2';
+hi3='hi3';
+var trash={app:{},modules:['base']}
+function show(el){
+    el.removeClass('hidden');
+}
+function hide(el){
+    el.addClass('hidden');
+}
+function hide_or_show(el){
+    if(el.hasClass('hidden'))show(el);
+    else hide(el);
+}
+String.prototype.replaceAll = function(s1,s2){
+return this.replace(new RegExp(s1,"gm"),s2);
+}
+String.prototype.escape2text=function(){
+    var ret= this.replaceAll('<div>','').replaceAll('</div>','\n').replaceAll('<br>','\n');
+    console.log(ret)
+    return ret;
+}
+String.prototype.strip=function(str=' '){
+ //类似于 python 的 strip 函数
+    context=this;
+    len=str.length;
+//    log(context);log(len)
+    if(context.length<len)return context;
+    while(true){
+        if(context.length<len) return context;
+        s1=context.slice(0,len);
+        if(s1===str)context=context.slice(len,);
+        else break;
+    }
+    while(true){
+        if(context.length<len) return context;
+        s2=context.slice(-len,);
+        if(s2===str)context=context.slice(0,-len);
+        else break;
+    }
+    return context;
+}
+String.prototype.mul=function(num){
+    var str=''
+    for(var i=0;i<num;i++){
+        str+=this;
+    };
+    return str;
+}
+String.prototype.toDict= function(divider=';'){
+//类似于对cookies的解析函数，将纯字符串的键=值对集合解析成集合，divider为分隔符。
+//例如 对 "name=nick&&key=123&&code=345" 进行解析，divider="&&",返回结果 { name:nick',key:'123',code:'345'}
+    var text=this.strip(divider);
+    var arr=text.split(divider);
+    var dic={};
+    for(var i=0;i<arr.length;i++){
+        [name,value]=arr[i].split('=');
+        dic[name]=value;
+    }
+    return dic;
+}
+String.prototype.getRows=function (t){
+//计算字符串中换行符数量
+    arr=t.split('\n')
+    return arr.length;
+}
+function getLastLine(text){
+    text=text.split('\n');
+    return text[text.length-1];
+}
+function getFirstLine(text){
+    text=text.split('\n');
+    return text[0];
+}
+function getLine(text,n){
+    num=0;
+    for(var i=0;i<n;i++){
+        if(text[i]=='\n')num++;
+    };
+    line =text.split('\n')[num];
+    //log(line);
+    return line;
+}
+function getHeadAndBody(text,from_start=true){
+    text=text.trim();
+    var pat=new RegExp('^\\/\\*[\\s\\S]*\\*\\/');
+    var m=text.match(pat);
+    if(!m)return [null,text];
+    var body=text.replace(pat,'');
+    var head=m[0];
+    return [head,body];
+}
+//----------------------------------------------//
+// document format conversion
+function escapeToHTML(str) {
+ var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'};
+ return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,t){return arrEntities[t];});
+}
+
+//-------------------------------------------------------//
+Array.prototype.wash=function(){
+    var new_arr=[]
+    for(var i=0;i<this.length;i++ ){
+        var s=this[i].trim();
+        if(s)new_arr.push(s);
+    }
+    return new_arr;
+}
+
+//------------------------------------------------//
+//常用函数
+function log(text){console.log(text);}
+function slog(text,str='',num=10){
+    console.log('*'.mul(num));
+    console.log(text);
+    console.log('*'.mul(num));
+}
+function flag(text){
+    slog('Hi,this is a flag. '+text);
+}</script>
+<script></script>
+<script>// base : jquery
+
+// 需定义button属性：status:默认状态，on:表示开启状态的信息，off:表示关闭状态的信息。
+//-----------Easy Switch--------------//
+
+TEST_MODE=true
+
+//base: jquery, easyJS(show and hide)
+if(screen.width<=500){smartphone=true;pc=false;}
+if(screen.width>500){pc=true;smartphone=false;}
+if(TEST_MODE){
+    if(smartphone)slog('smartphone');
+    if(pc)slog('pc');
+}
+function showMsg(msg_box,msg){
+    show(msg_box);
+    msg_box.html(msg);
+}
+function hideMsg(msg_box){
+    hide(msg_box);
+}
+
+function initMessageShow(sel){
+    var boxes=$(sel);
+    boxes.map((n,box)=>{
+        var box=$(box);
+        box.click(()=>{hide(box);});
+        box.click();
+        var hide_when=box.attr('hide-when');
+        if(hide_when=='click-anywhere'){
+            $(window).click(()=>{
+//                if(!box.hasClass('hidden'))hideMsg(box);
+            })
+        }
+    })
+}
+$(document).ready(()=>{
+    initMessageShow('.msg-box-tem');
+    initMessageShow('.msg-box');
+})
+//--------------------Easy-to-use api which act like switches------------//
+function changeVisibility(el){
+    if(el.hasClass('hidden')) el.removeClass('hidden');
+    else el.addClass('hidden');
+}
+
+//------------------Switches--------------//
+switches={};
+//---------------Supporting Functions-------------------//
+function getSource(el){
+    return $(el.attr('src-sel'));
+}
+function getTarget(el){
+    return $(el.attr('tar-sel'));
+}
+function getStatus(el){
+    return el.attr('status');
+}
+function getOnMsg(el){
+    return el.attr('on-msg');
+}
+function getOffMsg(el){
+    return el.attr('off-msg');
+}
+function getStatusAndMsg(el){
+    return [getStatus(el),getOnMsg(el),getOffMsg(el)];
+}
+function setStatusOn(el,on_msg){
+    el.attr('status','on');
+    el.text(on_msg);
+}
+function setStatusOff(el,off_msg){
+    el.attr('status','off');
+    //log('off:'+off_msg);
+    //log(el)
+    el.text(off_msg);
+}
+
+//-------------------Switch Class------------//
+//usage:
+//el: switch component; turnOn: function to turn on; turnOff: fnuction to turn off  ;
+//el: an el must contains two button inside it. These two button, one with class "switch-on" and another with "switch-off";
+//el: should own such properties: status(on/off)
+class Switch{ //el: jquery object
+    constructor(el,turnOn,turnOff){
+        this.el=el; // on_sel and off_sel
+        this.turnOn=turnOn;
+        this.turnOff=turnOff;
+        this.parse();
+    }
+    parse(){
+        if(this.el.attr('easy-switch')=='true')this.easy_switch=true;
+        else this.easy_switch=false;
+        if(this.easy_switch)this.doEasySwitch();// doEasySwitch
+        else this.doNormalSwicth();  //  doNormalSwitch
+    }
+//-----------NormalSwitch-----------//
+    doNormalSwicth(){
+
+        this.on_el=this.el.find('.switch-on');
+        this.off_el=this.el.find('.switch-off');
+
+        var self=this;
+        //log(this.el);
+        this.on_el.unbind('click').click(function(){self.turnOn();self.on_el.hide();self.off_el.show();});
+        this.off_el.unbind('click').click(function(){self.turnOff();self.off_el.hide();self.on_el.show();});
+        this.off_el.click();
+    }
+//-------EasySwitch-----------------//
+    doEasySwitch(){
+
+        this.on_msg=this.el.attr('on-msg');
+        this.off_msg=this.el.attr('off-msg');
+
+        this.checkStatus();
+        var self=this;
+        this.el.unbind('click').click(()=>{
+            if(self.status()=='on'){self.easyTurnOff();}
+            else self.easyTurnOn();
+        })
+    }
+    easyTurnOn(){
+        this.setStatus('on');
+        this.checkStatus();
+    }
+    easyTurnOff(){
+        this.setStatus('off');
+        this.checkStatus();
+    }
+    setStatus(stat){
+        this.el.attr('status',stat);
+    }
+    status(){
+        return this.el.attr('status');
+    }
+    checkStatus(){
+        if(!this.el.attr('status'))this.el.attr('status','off');
+        var status=this.status();
+        if(status=='on'){this.turnOn();this.el.html(this.off_msg);}
+        else{this.turnOff();this.el.html(this.on_msg);}
+    }
+}
+
+
+//----------------------------------------------//
+
+
+
+
+
+
+//----------------Speech Switch--------------------//
+//usage:
+//set properties:
+//class: switch-speakInnerText; tar-sel; status; on-msg; off-msg;
+function startSpeaking(el){
+    var speechSU = new window.SpeechSynthesisUtterance();
+    speechSU.text = getInnerContent(el);
+    window.speechSynthesis.speak(speechSU);
+    return speechSU;
+}
+function stopSpeaking(){
+    window.speechSynthesis.cancel();
+    console.log('停止朗读');
+}
+class SpeakSwitch extends Switch{
+    constructor(btn,tar){
+        super(btn,()=>startSpeaking(tar),()=>stopSpeaking());
+    }
+}
+function initSpeakInnerTextSwitch(){
+    var btn=$('.switch-speakInnerText');
+    var tar=getTarget(btn);
+    var s= new SpeakSwitch(btn,tar);
+}
+//------------全屏开关-------------------//
+//usage:
+//set properties:
+//class:switch-fullscreen;status:on/off;on-msg;off-msg;tar-sel;
+function getreqfullscreen(){
+    var root = document.documentElement
+    return root.requestFullscreen || root.webkitRequestFullscreen || root.mozRequestFullScreen || root.msRequestFullscreen
+}
+function getExitfullScreen(){
+    return document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen
+}
+function fullScreen(el){
+    el.css('max-height','800px');
+    el.css('overflow','hide');
+    getreqfullscreen().call(el[0]);
+}
+function exitFullScreen(el){
+    el.css('max-height','');
+    el.css('overflow','');
+    //log(hi);
+    getExitfullScreen().call(document);
+}
+
+class FullScreenSwitch extends Switch{
+    constructor(btn,tar){
+        //log(btn)
+        super(btn,()=>fullScreen(tar),()=>exitFullScreen(tar));
+    }
+}
+function initFullScreenSwitch(){
+    var btn=$('.switch-fullscreen');
+    var tar=getTarget(btn);
+    var s= new FullScreenSwitch(btn,tar);
+}
+
+//----------------View 开关--------------------//
+function switchView(src,tar){
+    hide(src);
+    show(tar);
+}
+function initViewSwitch(){
+    sws=$('.switch-view');
+    for(var i=0;i<sws.length;i++){
+        var sw=$(sws[i]);
+        var tar=getTarget(sw);
+        var src=getSource(sw);
+        var sssw=new Switch(sw,function(){switchView(src,tar)},function(){switchView(tar,src);});
+    }
+}
+//-----------------ShowSwitch--------->
+class ShowSwitch extends Switch{
+    constructor(btn,tar){
+        super(btn,()=>show(tar),()=>hide(tar));
+    }
+}
+function initShowSwitch(){
+    sws=$('.switch-show');
+    for(var i=0;i<sws.length;i++){
+        var sw=$(sws[i]);
+        var tar=getTarget(sw);
+        var sssw=new ShowSwitch(sw,tar);
+    }
+}
+//-------------------End ShowSwitch-----------------//
+//---------------DoubleViewSwitch----------------//
+function doubleViewSwitchTurnOn(btn,tar1,tar2){
+        tar1.removeClass('dbview-switch-off');
+        tar1.addClass('dbview-switch-on');
+        show(tar2);
+    }
+ function doubleViewSwitchTurnOff(btn,tar1,tar2){
+         tar1.removeClass('dbview-switch-on');
+         tar1.addClass('dbview-switch-off');
+         hide(tar2);
+    }
+class DoubleViewSwitch extends Switch{
+    constructor(btn,tar1,tar2){
+        super(btn,()=>{doubleViewSwitchTurnOn(btn,tar1,tar2)},()=>{doubleViewSwitchTurnOff(btn,tar1,tar2)});
+    }
+}
+function initDoubleViewSwitch(){
+    var btns=$('.switch-doubleview');
+    switches['doubleview']=[];
+    btns.map((n,btn)=>{
+        btn=$(btn);log(btn)
+        var tar1=$(btn.attr('tar-sel1'));
+        var tar2=$(btn.attr('tar-sel2'));
+        var sw=new DoubleViewSwitch(btn,tar1,tar2);
+        switches.doubleview.push(sw);
+    })
+}
+//--------------------End DoubleViewSwitch-----------------------//
+//------------------Commander------------------//
+class Commander{
+    constructor(cmd_input,btn,funcs,msg_box){
+        this.cmd_input=cmd_input;
+        this.btn=btn;
+        this.funcs=funcs;
+        this.local_funcs=this.getLocalFuncs();
+        this.msg_box=msg_box;
+        var self=this;
+        this.btn.click(()=>{
+            self.executeCmd();
+        });
+        this.cmd_input.keydown((e)=>{
+            if(e.keyCode==13){hideMsg(self.msg_box);self.btn.click();}
+        });
+    }
+    getCmd(){
+        var cmd=this.cmd_input.val();
+        return cmd;
+    }
+    parseCmd(cmd){
+        var cmd=cmd.split(' ');
+        cmd=cmd.wash();
+        return [cmd[0],cmd.slice(1,cmd.length)];
+    }
+    executeCmd(){
+        var cmd=this.getCmd();
+        if(cmd=='')return null;
+        var func_name;var params;
+        [func_name,params]=this.parseCmd(cmd);
+        var func=this.funcs[func_name];
+        if(!func) {
+            func=this.local_funcs[func_name];
+            if(!func){showMsg(this.msg_box,'命令错误！');return null;}
+        }
+        var p1=params.shift();
+        var ret=func(p1,params);
+        this.cmd_input.val('');
+        return ret;
+    }
+    getLocalFuncs(){
+        var funcs={
+            "alert":(text)=>{
+                alert(text);return true;
+            },
+            "js":(code)=>{
+
+            }
+        }
+        return funcs;
+    }
+}
+//---------------SwitchInitializer---------------------//
+class SwitchInitializer{
+    constructor(btn){
+        this.btn=btn;
+        this.initialState=this.status();
+        this.src=$(this.btn.attr('src-sel'));
+        this.tar=$(this.btn.attr('tar-sel'));
+        this.tar1=$(this.btn.attr('tar-sel1'));
+        this.tar2=$(this.btn.attr('tar-sel2'));
+        var tars=this.btn.attr('tar-sels');
+        this.tars=[];
+        if(tars){
+            tars=tars.split();
+            tars.map((n,ta)=>{
+                this.tars.push($(ta));
+            })
+        }
+
+    }
+    status(){
+        return this.btn.attr('status');
+    }
+}
+//-------------初始化-------------//
+function initSwitch(){
+    initFullScreenSwitch();
+    initSpeakInnerTextSwitch();
+    initViewSwitch();
+    initShowSwitch();
+    initDoubleViewSwitch();
+}
+$(document).ready(()=>{
+    initSwitch();
+})
+</script>
+<script>
+class WordQuerier{
+    constructor(base_url='http://www.iciba.com'){
+        this.base_url=base_url;
+    }
+    get(url){}
+    joinPath(latter){return this.base_url+'/'+latter;}
+    query(word){
+        var url=this.joinPath(word);
+        var re=$.post({url:'/proxy/get',data:JSON.stringify({url:url}),async:false});
+        return this.parse(re.responseText);
+    }
+    parse(html){
+       var doc=$(html);
+       var s1=doc.find('.container-left').find('.js-base-info').find('.in-base');
+       var item1=s1.find('.in-base-top').html()
+       var item2=s1.find('.base-list').html()
+       var item3=s1.find('.change').html();
+       var html='';
+       if(item1)html+=item1;
+       if(item2)html+=item2;
+       if(item3)html+=item3;
+       return html;
+    }
+}
+
+flag('query opend');
+querier=new WordQuerier();
+$(document).ready(()=>{
+    var blogs=$('.blog');
+    var msg_box=$('.msg-box');
+//    var test_div=$('.test-msg-box');
+    if(smartphone)return slog('smartphone : not execute this.');
+    blogs.map((n,b)=>{
+        b=$(b);
+        b.click(()=>{
+//            test_div.html('clicked');
+            var text=window.getSelection().toString();
+//            test_div.html('text selected:'+text);
+            if(text.trim()=='')return hideMsg(msg_box);
+//            test_div.html('text selected:'+text);
+            slog(text);
+            var text=querier.query(text);
+            showMsg(msg_box,text);
+//            test_div.html(text);
+        })
+    })
+})
+
+
+</script>
+
+
+    <style>
+
+
+
+
+.nav-header{
+    position:fixed;
+    z-index:1;
+    top:0px;
+    width:100%;
+    background:#175199;
+    color:white;
+    padding-top:1em;
+    padding-bottom:0.5em;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    -moz-box-shadow:0 0 10px rgba(0,0,0,0.7);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+#nav-menu{
+    margin-top:4.2em;
+}
+#blog-list-menu{
+    background:#175199;
+    color:white;
+}
+#blog-list-menu a{
+    color:white;
+}
+.blog-list-menu-item{
+    padding:0.2em 2em 0.2em 2em;
+}
+#article-list-container{
+    padding-top:7em;
+}
+.blog-mask{
+    height:13em;
+    overflow:hidden;
+}
+.fold-ctrl{
+    position:relative;
+    top:-3em;
+    color:#175199;
+    font-weight:700;
+    background:white;
+    background: -webkit-gradient(linear, 0 0, 0 20%, from(rgba(255, 255, 255, 0)), to(#fff));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#ffffff, GradientType=0);
+    height:3em;
+    margin-bottom:-3em;
+}
+.fold-on{
+
+}
+
+.dark-page{
+    background: rgba(14,16,15,0.95);
+    text-align:center;
+}
+.dark-page .link-box{
+    width:100%;
+    position:absolute;
+    top:30%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+.dark-page-item{
+    font-size:1.6em;
+    font-weight:100;
+    padding:0.2em 0.3em;
+    border:solid white 1px;
+    border:none;
+    border-radius:0.8em;
+    margin:0.2em 1em;
+}
+.dark-page .close-icon{
+    position:fixed;
+    top:20%;
+    display:inline-block;
+    right:10%;
+}
+
+
+.list-btn{
+    background:inherit;
+    color:inherit;
+    border:none;
+}
+.list-icon{
+    display:inline-block;
+    width:2em;
+    line-height:2px;
+}
+.list-icon .i{
+    display:inline-block;
+    width:1.5em;
+    height:2px;
+    background:white;
+    margin:0px;
+}
+
+.nav-list{
+    list-style:none;
+    float:right;
+    margin:-5px 15px 0px 10px;
+}
+.nav-list .nav-icon:hover{
+    transform:scale(1.3);
+}
+.nav-list .nav-icon a{
+    background:inherit;
+    color:inherit;
+}
+.nav-icon{
+    position: relative;
+    display: inline-block;
+    border: 1px solid;
+    border-color: rgba(255,255,255,0.35) rgba(255,255,255,0.45) rgba(255,255,255,0.55);
+    border-radius: 100%;
+    padding: 2px 6px;
+    margin: 0 .25em;
+    font-size: 12px;
+    font-size: 1.2rem;
+    letter-spacing: .5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 3px 18px rgba(0,0,0,0.2);
+    color: rgba(255,255,255,0.8);
+    transition: .2s;
+    cursor: pointer;
+    width:36px;
+    height:36px;
+}
+.nav-icon-bars{margin:-5px 15px 0px 10px;}
+@media(max-width:500px){
+.nav-list{display:none;}
+}
+@media(min-width:500px){
+.nav-icon-bars{display:none;}
+}</style>
+    <script>
+var home={};
+function initScreen(){
+    var width=screen.width;
+    var body=$('body');
+    if(width<=500)body.addClass('screen-sm');
+}
+function switch_fold_on(tar){
+    tar.addClass('blog-mask');
+}
+function switch_fold_off(tar){
+    tar.removeClass('blog-mask');
+}
+
+class SwitchFold extends Switch{
+    constructor(btn,tar){
+        super(btn,()=>{switch_fold_on(tar);},()=>{switch_fold_off(tar)});
+    }
+}
+function initBlog(blog){
+    var mask=blog.find('.wrapper1');
+    var unfold=blog.find('.switch-fold');
+    if(mask.height()>300){new SwitchFold(unfold,mask);show(unfold);}
+    else{hide(unfold);}
+
+}
+function initHome(){
+    home.blogs=$('.blog');
+    home.blogs.map((n,blog)=>{
+        var blog=$(blog);
+        initBlog(blog);
+    })
+
+}
+$(document).ready(()=>{
+    initHome();
+})</script>
+    <style>.msg-box-wrapper{
+width:100%;
+position:fixed;
+top:100px;
+padding:0;
+margin:0 auto;
+z-index:20;
+text-align:center;
+}
+.msg-box-wrapper2{
+    display:inline-block;
+    width:100%;
+    max-width:600px;
+}
+        .msg-box{
+padding:20px;
+background:rgba(0,0,0,0.8);
+color:white;
+        }
+        .test-msg-box{
+padding:20px;
+background:rgba(0,0,0,0.8);
+color:white;
+        }
+.site-logo-english-corner{
+    max-width:200px;width:50%;margin-top:-30px;margin-bottom:0px;
+}
+
+/*
+.i{
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}*/
+/*
+.hover-rotate{
+  animation-duration: 3s;
+  animation-name: rotate-forever;
+  animation-iteration-count:infinite;
+  animation-timing-function: linear;
+}*/
+
+
+@keyframes rotate-forever {
+  from {
+    transform:rotate(0deg);
+  }
+
+  to {
+    transform:rotate(360deg);
+  }
+}</style>
+
+</head>
+<body>
+<div class="msg-box-wrapper" style=""><div class="msg-box-wrapper2"><div class="msg-box hidden" hide-when="click-anywhere"></div></div></div>
+<div class="root" style="min-height:400px;">
+    
+<style>
+    .site-logo-english-corner:hover{
+        max-width:50%;
+
+    }
+
+</style>
+<header class="fixed-top " id="home-header-wrapper">
+        <div class="nav-header ">
+            <img src="/imgs/logo.png" class="site-logo-english-corner" style="margin-left:3rem;">
+            <span class="f-right nav-icon nav-icon-bars hover-rotate"  onclick="changeVisibility($('#nav-page'))">
+                <i class="fa fa-bars fa-lg"></i>
+            </span>
+            <ul class="nav-list"  >
+                <li class="nav-icon" id="blog-list-menu-toggle"
+                    onclick="changeVisibility($('#blog-title-list-wrapper'))"><i class="fa fa-bars fa-lg" ></i></li>
+                <li class="nav-icon"><a href="/about"><i class="fa fa-user fa-lg"></i></a></li>
+                <li class="nav-icon"><a href="/"><i class="fa fa-home fa-lg"></i></a></li>
+            </ul>
+
+
+            <div class="clear"></div>
+        </div>
+
+    </header>
+
+    <div id="article-list-container" class="text-align-center">
+        
+    </div>
+
+    <div info="Here are dark pages">
+        <div id="blog-title-list-wrapper" class="fixed-fillscreen hidden dark-page" style="overflow:auto;">
+            <div class="close-icon" id="btn-close-title-list" onclick="changeVisibility($('#blog-title-list-wrapper'))"><span><img
+                    src="/imgs/icons/close4.png"></span></div>
+            <div id="blog-title-list" class="link-box">
+                
+            </div>
+        </div>
+        <div id="nav-page" class="fixed-fillscreen hidden dark-page">
+            <div class="close-icon" id="btn-close-nav-page" onclick="changeVisibility($('#nav-page'))"><span><img
+                    src="/imgs/icons/close4.png"></span></div>
+            <div class="link-box">
+                <div class="dark-page-item"><a href="/">Home</a></div>
+                <div class="dark-page-item"><a href="/about">About</a></div>
+                <!--<div class="dark-page-item"><a href="/tags">Tags</a></div>-->
+                <!--<div class="dark-page-item"><a href="/archieves">Archieve</a></div>-->
+                <!--<div class="dark-page-item"><a href="/categories">Category</a></div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="page-body" style="min-height:470px;">
+        
+
+<style>
+
+
+body{
+    font-family:'PT Sans', sans-serif,serif,Cambria,Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman";
+    background:white;
+}
+
+.blog{
+    border-bottom:#175199 dotted 1px;
+    margin-top:0em;
+    margin-bottom:0em;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.2rem;
+    letter-spacing: -.003em;
+    display:inline-block;
+    text-align:left;
+    padding:0em;
+    font-family:serif,Cambria,Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman";
+
+}
+
+
+
+.wrapper1{
+    padding-bottom:0em;
+    overflow-x:auto;
+}
+.article-head{
+    padding-top:0.5rem ;
+    padding-left:1em;
+    padding-right:1em;
+    margin-bottom:-0.5rem;
+    color:#757575;
+}
+
+.article-head .title{
+    font-weight:700;
+    font-size:1.3rem;
+    color:black;
+    display:inline-block;
+    margin-block-start:0.6em;
+    margin-block-end:0.6em;
+    text-transform: uppercase;
+    margin:0em;
+}
+.article-head .title-description{
+    float:right;
+    display:inline-block;
+    font-size:0.7rem;
+}
+.article-body{
+    padding:0.3em;
+    padding-left:1em;
+    padding-right:0.9em;
+}
+.article-body p,.article-body div{
+    margin-block-start:0.6em;
+    margin-block-end:0.6em;
+    font-weight:200;
+    font-size:0.9em;
+}
+.article-body p{
+
+}
+.fold-ctrl-wrapper{
+    height:3em;
+}
+.fold-ctrl{
+    position:static;
+    width:100%;
+    text-align:center;
+    /*
+    color:#175199;
+    */
+    color:#175199;
+    font-weight:700;
+    background:#f0efed;
+    background: -webkit-gradient(linear, 0 0, 0 20%, from(rgba(255, 255, 255, 0)), to(rgba(255,255,255,1)));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#ffffff, GradientType=0);
+    height:3em;
+    margin-bottom:0em;
+    padding-top:0.5em;
+}
+
+@media (max-width: 576px) {
+
+ .blog{
+    text-rendering: optimizeLegibility;
+   /* font-family:Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman"; */
+    font-family: Helvetica,Droid Sans,Heiti SC,Droidsansfallback,serif,Cambria;
+    font-size:1rem;
+
+
+     }
+.blog .title{
+    font-size:1.2em;
+    font-weight:700;
+}
+.blog .article-body{
+    padding:0.3em;
+    padding-left:1em;
+    padding-right:0.9em;
+    word-spacing:0.1em;
+    letter-spacing:1px;
+    font-size:1em;
+    font-weight:normal;
+}
+.article-body h1,.article-body h2{font-size:1.2em;}
+.article-body h3,.article-body h4,.article-body h5,.article-body h6,{font-size:1.1em;}
+
+}
+@media (min-width: 576px) {
+ .blog{
+
+ }
+}
+
+.dark-page{
+    z-index:1;
+    background: rgba(14,16,15,0.95);
+    text-align:center;
+}
+.dark-page .link-box{
+    width:100%;
+    position:absolute;
+    top:30%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+.dark-page-item{
+    font-size:1.6em;
+    font-weight:100;
+    padding:0.2em 0.3em;
+    border:solid white 1px;
+    border:none;
+    border-radius:0.8em;
+    margin:0.2em 1em;
+}
+.dark-page .close-icon{
+    position:fixed;
+    top:20%;
+    display:inline-block;
+    right:10%;
+}
+.blog .article-head a{color:black;}
+.blog .title{font-size:1.25em;
+font-weight:bold;
+text-transform:capitalize;
+}
+.blog .title-description{
+font-size:0.9em;
+float:none;
+margin-bottom:0px;
+display:block;
+}
+.blog img{width:100%;}
+.blog p{text-indent:0em;}
+.blog .article-body::first-letter{
+    font-size:1.6em;
+}
+</style>
+<div style="text-align:center;">
+    <div style="height:100px;"></div>
+<div class="col-xs-12 col-md-7 blog" style=""  id="blog-2019531wwq">
+
+                <div class="wrapper1" style="">
+                    <div class="article-head" style="">
+                        <p class="title" >
+                            <a href="/p/2019531wwq.html">wwq</a>
+                        </p>
+                        <p class="title-description" >ZERO|2019-06-01</p>
+                    </div>
+
+                    <hr style="">
+                    <div class="article-body" style="">
+                        
+                    </div>
+                </div>
+        <div class="fold-ctrl-wrapper">
+        <center class="fold-ctrl switch-fold" easy-switch="true" status="off" on-msg="Pull Up" off-msg="Read All"><span  tar-sel="#2019531wwq" folded-height="">Read All</span></center>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+    <div class="footer" >
+        <div class="divider" style="width:100%;height:3px;background:#175199;"></div>
+        <div class="divider" style="width:100%;">
+            <div class="text-align-center" style="padding:20px;background:#eeedeb;font-weight:200;">
+                <h3>END</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

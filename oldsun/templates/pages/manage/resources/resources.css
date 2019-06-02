@@ -1,0 +1,26 @@
+
+.fs-table{
+   table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+}
+.fs-table thead th:nth-child(1) {
+  width: 30%;
+}
+
+.fs-table thead th:nth-child(2) {
+  width: 20%;
+}
+
+.fs-table thead th:nth-child(3) {
+  width: 15%;
+}
+
+.fs-table thead th:nth-child(4) {
+  width: 35%;
+}
+
+.fs-table th, .fs-table td {
+  padding: 10px;
+}

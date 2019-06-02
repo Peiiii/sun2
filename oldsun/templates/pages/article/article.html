@@ -1,0 +1,195 @@
+
+{%extends "lib/html/article_page_base.html"%}
+{%block site_body%}
+
+<style>
+
+
+body{
+    font-family:'PT Sans', sans-serif,serif,Cambria,Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman";
+    background:white;
+}
+
+.blog{
+    border-bottom:#175199 dotted 1px;
+    margin-top:0em;
+    margin-bottom:0em;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.2rem;
+    letter-spacing: -.003em;
+    display:inline-block;
+    text-align:left;
+    padding:0em;
+    font-family:serif,Cambria,Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman";
+
+}
+
+
+
+.wrapper1{
+    padding-bottom:0em;
+    overflow-x:auto;
+}
+.article-head{
+    padding-top:0.5rem ;
+    padding-left:1em;
+    padding-right:1em;
+    margin-bottom:-0.5rem;
+    color:#757575;
+}
+
+.article-head .title{
+    font-weight:700;
+    font-size:1.3rem;
+    color:black;
+    display:inline-block;
+    margin-block-start:0.6em;
+    margin-block-end:0.6em;
+    text-transform: uppercase;
+    margin:0em;
+}
+.article-head .title-description{
+    float:right;
+    display:inline-block;
+    font-size:0.7rem;
+}
+.article-body{
+    padding:0.3em;
+    padding-left:1em;
+    padding-right:0.9em;
+}
+.article-body p,.article-body div{
+    margin-block-start:0.6em;
+    margin-block-end:0.6em;
+    font-weight:200;
+    font-size:0.9em;
+}
+.article-body p{
+
+}
+.fold-ctrl-wrapper{
+    height:3em;
+}
+.fold-ctrl{
+    position:static;
+    width:100%;
+    text-align:center;
+    /*
+    color:#175199;
+    */
+    color:#175199;
+    font-weight:700;
+    background:#f0efed;
+    background: -webkit-gradient(linear, 0 0, 0 20%, from(rgba(255, 255, 255, 0)), to(rgba(255,255,255,1)));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#ffffff, GradientType=0);
+    height:3em;
+    margin-bottom:0em;
+    padding-top:0.5em;
+}
+
+@media (max-width: 576px) {
+
+ .blog{
+    text-rendering: optimizeLegibility;
+   /* font-family:Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman"; */
+    font-family: Helvetica,Droid Sans,Heiti SC,Droidsansfallback,serif,Cambria;
+    font-size:1rem;
+
+
+     }
+.blog .title{
+    font-size:1.2em;
+    font-weight:700;
+}
+.blog .article-body{
+    padding:0.3em;
+    padding-left:1em;
+    padding-right:0.9em;
+    word-spacing:0.1em;
+    letter-spacing:1px;
+    font-size:1em;
+    font-weight:normal;
+}
+.article-body h1,.article-body h2{font-size:1.2em;}
+.article-body h3,.article-body h4,.article-body h5,.article-body h6,{font-size:1.1em;}
+
+}
+@media (min-width: 576px) {
+ .blog{
+
+ }
+}
+
+.dark-page{
+    z-index:1;
+    background: rgba(14,16,15,0.95);
+    text-align:center;
+}
+.dark-page .link-box{
+    width:100%;
+    position:absolute;
+    top:30%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+.dark-page-item{
+    font-size:1.6em;
+    font-weight:100;
+    padding:0.2em 0.3em;
+    border:solid white 1px;
+    border:none;
+    border-radius:0.8em;
+    margin:0.2em 1em;
+}
+.dark-page .close-icon{
+    position:fixed;
+    top:20%;
+    display:inline-block;
+    right:10%;
+}
+.blog .article-head a{color:black;}
+.blog .title{font-size:1.25em;
+font-weight:bold;
+text-transform:capitalize;
+}
+.blog .title-description{
+font-size:0.9em;
+float:none;
+margin-bottom:0px;
+display:block;
+}
+.blog img{width:100%;}
+.blog p{text-indent:0em;}
+.blog .article-body::first-letter{
+    font-size:1.6em;
+}
+</style>
+<div style="text-align:center;">
+    <div style="height:100px;"></div>
+<div class="col-xs-12 col-md-7 blog" style=""  id="blog-{{blog.id}}">
+
+                <div class="wrapper1" style="">
+                    <div class="article-head" style="">
+                        <p class="title" >
+                            <a href="/p/{{blog.id}}.html">{{blog.title}}</a>
+                        </p>
+                        <p class="title-description" >{{blog.author}}|{{blog.date}}</p>
+                    </div>
+
+                    <hr style="">
+                    <div class="article-body" style="">
+                        {{blog.html}}
+                    </div>
+                </div>
+        <div class="fold-ctrl-wrapper">
+        <center class="fold-ctrl switch-fold" easy-switch="true" status="off" on-msg="Pull Up" off-msg="Read All"><span  tar-sel="#{{blog.id}}" folded-height="">Read All</span></center>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

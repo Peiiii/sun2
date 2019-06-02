@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{config.site_name}}</title>
+    <meta name="keywords" content="wp">
+    <meta name="description" content="WP">
+    {%include "lib/includes/power_include.html"%}
+
+    <!-- <style>{%include "lib/page/about/about1/about.css"%}</style> -->
+<style>
+.page-footer{
+	padding:0px;background:#175199;font-weight:200;color:white;width:100%;
+}
+.divider{
+	width:100%;height:3px;background:#175199;
+}
+.sidebar{
+	text-align:center;
+	height:100%;
+}
+.layer1{
+	position:absolute;
+	top:0;left:0;
+	width:100%;
+	height:100%;
+	text-align:center;
+	z-index:2;
+}
+.line-vertical{
+	position:relative;
+	width:3px;
+	left:50%;
+	margin-left:-3px;
+	height:100%;
+	background:#0de696;
+	z-index:1;
+}
+.avatar-wrapper{
+	padding:12px;
+	color:#0de696;
+	border:solid 1px green;
+	background:black;
+	display:inline-block;
+	border-radius:100%;
+	width:60px;
+	height:60px;
+	
+}
+.avatar-wrapper:hover{color:orange;}
+
+.line{
+	display:inline-block;
+	margin:0 20px;
+	padding:0px;
+	width:40px;
+	height:3px;
+	background:#0de696;
+}
+.center-row:hover{
+	
+	transform:rotate(30deg);
+}
+.head-photo:hover{
+	tansform:rotate(180deg);
+}
+.head-photo-wrapper{
+	background:url(imgs/photos/girl.png) center no-repeat;
+	width:60px;
+	height:60px;
+	background-size:100% 100%;
+}
+.three-line{
+	line-height:15px;
+	background:black;
+	padding-bottom:15px;
+}
+.line:hover{background:orange;}
+.center-row{
+	text-align:center;
+}
+.row-item{display:inline-block;}
+.heighter-25{
+	height:25px;
+}
+</style>
+</head>
+<body>
+
+<div class="root row" style="background:rgb(16,16,16);position:fixed;width:100%;height:100%;flex-flow:row wrap;">
+
+	<div class="sidebar col-sm-2 col-xs-2" style="background:black;text-align:center;">
+		<div class="line-vertical" style="height:60%;"></div>
+		
+		<div class="layer1" style="">
+				<div class="heighter-25"></div>
+			<div class="center-row"><div class="head-photo-wrapper row-item avatar-wrapper" style=""></div> </div>
+				<div class="heighter-25"></div>
+			<div class="center-row"><div class="avatar-wrapper"><i class="fa fa-envelope-o fa-2x"></i></div></div> 
+				<div class="heighter-25"></div>
+			<div class="center-row"><div class="avatar-wrapper"><i class="fa fa-picture-o fa-2x"></i></div></div> 
+			<div class="heighter-25"></div>
+			<div class="three-line">
+				<div class="center-row"><div class="line" ></div></div> 
+				<div class="center-row"><div class="line" ></div></div> 
+				<div class="center-row"><div class="line" ></div></div> 
+			</div>	
+		</div>
+		<div class="line-vertical" style="background:orange;height:40%;"></div>
+	</div>
+	<div class="col-sm-8 col-xs-8" >
+		hi
+	</div>
+</div>
+<div class="hidden links">
+<a href="/about">about</a>
+<a href="/blogs">blogs </a>
+</div>
+</body>
+</html>

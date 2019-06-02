@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>霓虹灯和月亮的距离</title>
+    <meta name="keywords" content="北京的玉兰花开了。;赵慧文打算睡在办公室里。她的家在昌平，从单位回家接近两个半小时。每当下班后有什么活动，她都会在办公室里搭张床，节省出往返近五个小时的时间。充足的睡眠对她来说，是个奢侈品。;林震也要回单位过夜。他的家不算太远，在天坛附近。但是他单身一人，回家和在办公室的区别不大。接受完采访，他走在灯火辉煌的街头，仔细地辨认着方向。单位门口的武警认出了他，朝他笑了一下。;单位和“家”常常是可以互换的概念。对于中央公务员来说，以单位为家，有时不仅仅是“过夜”，更象征着他们始终要在一个紧密的环境下生存。很多时候，他们在反思自身的处境之外，更关注理想的实现、社会的进步，他们身上的进取/反思精神，也可以说是一种时代精神的体现。;提;级;林震毕业后的第一份工作也令不少同龄人羡慕。他常常代表单位去人民大会堂听报告，去国家博物馆看大型历史展览，去部委参加各种会议。活动范围以紫禁城为圆心。不过，他心里还是觉得不稳当。;五年后，他考上了国家公务员，起点是很多基层公务员一生也未必够得上的职级，主任科员。这在他的家乡刮起了一阵舆论旋风，人人都说他越来越有出息，“一日">
+    <meta name="description" content="事务性的事情太多，反而和理想越拉越远。但是，理想也许就建立在这些密密麻麻的小事上。“我们可能一辈子都要和这些材料、数据打交道。”">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<!--<link rel="stylesheet" href="/css/bootstrap.css">-->
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<style>
+
+:root{
+--dblue:#0b65c5;
+}
+.f-left{float:left}
+.f-right{float:right}
+.a-plain{
+    color:inherit;
+}
+
+.text-align-left{text-align:left;}
+.text-align-center{text-align:center;}
+.text-align-right{text-align:right;}
+
+.hidden{
+    display:none;
+}
+/*display*/
+.d-inline-block{display:inline-block;}
+.d-inline{display:inline;}
+.d-block{display:block;}
+/**/
+/*background*/
+.bg-black{background:black;}
+.bg-gray{background:gray;}
+.bg-green{background:green;}
+.bg-333{background:#333;}
+.bg-book{background:#e8e5d4;}
+/*color*/
+.c-white{ color:white;}
+.c-book{color:#343530;}
+/*height*/
+.h-10{height:10rem;}
+.h-p100{height:100%;}
+.h-p50{height:50%;}
+/*width*/
+.w-p50{width:50%;}
+.w-p100{width:100%;}
+.w-10{width:10rem;}
+/*size*/
+.size-p100{width:100%;height:100%;}
+/*align*/
+.align-center{text-align:center;}
+/**/
+/**/
+/*padding*/
+.pad-0{padding:0em;}
+/*margin*/
+/*border*/
+
+/*position*/
+.fixed-fillscreen{position:fixed;top:0rem;bottom:0rem;left:0rem;right:0rem;}
+/*other*/
+.clear,clearfix{clear:both;}
+
+
+/*临时添加*/
+blockquote{
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+    margin-top:0px;
+    margin-bottom:16px;
+}</style>
+<style>
+.icon-moon{
+    width:30px;
+    height:30px;
+    display:inline-block;
+    background:url(/imgs/icons/moon.png);
+}
+.hover-rotate:hover{
+    transform:rotate(360deg);
+    transition:a
+}</style>
+<style>.nav-list{
+    list-style:none;
+    float:right;
+    margin:-5px 15px 0px 10px;
+}
+.nav-list .nav-icon:hover{
+    transform:scale(1.3);
+}
+.nav-list .nav-icon a{
+    background:inherit;
+    color:inherit;
+}
+.nav-icon{
+    position: relative;
+    display: inline-block;
+    border: 1px solid;
+    border-color: rgba(255,255,255,0.35) rgba(255,255,255,0.45) rgba(255,255,255,0.55);
+    border-radius: 100%;
+    padding: 2px 6px;
+    margin: 0 .25em;
+    font-size: 12px;
+    font-size: 1.2rem;
+    letter-spacing: .5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 3px 18px rgba(0,0,0,0.2);
+    color: rgba(255,255,255,0.8);
+    transition: .2s;
+    cursor: pointer;
+    width:36px;
+    height:36px;
+}
+.nav-icon-bars{margin:-5px 15px 0px 10px;}
+@media(max-width:500px){
+.nav-list{display:none;}
+}
+@media(min-width:500px){
+.nav-icon-bars{display:none;}
+}</style>
+
+<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+<script src="/js/popper.min.js"></script>
+<!--<script src="/js/bootstrap.min.js"></script>-->
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>//base : jsquery,boostrap(only show and hide)
+dev=true;
+hi='hi';
+hi1='hi1';
+hi2='hi2';
+hi3='hi3';
+var trash={app:{},modules:['base']}
+function show(el){
+    el.removeClass('hidden');
+}
+function hide(el){
+    el.addClass('hidden');
+}
+function hide_or_show(el){
+    if(el.hasClass('hidden'))show(el);
+    else hide(el);
+}
+String.prototype.replaceAll = function(s1,s2){
+return this.replace(new RegExp(s1,"gm"),s2);
+}
+String.prototype.escape2text=function(){
+    var ret= this.replaceAll('<div>','').replaceAll('</div>','\n').replaceAll('<br>','\n');
+    console.log(ret)
+    return ret;
+}
+String.prototype.strip=function(str=' '){
+ //类似于 python 的 strip 函数
+    context=this;
+    len=str.length;
+//    log(context);log(len)
+    if(context.length<len)return context;
+    while(true){
+        if(context.length<len) return context;
+        s1=context.slice(0,len);
+        if(s1===str)context=context.slice(len,);
+        else break;
+    }
+    while(true){
+        if(context.length<len) return context;
+        s2=context.slice(-len,);
+        if(s2===str)context=context.slice(0,-len);
+        else break;
+    }
+    return context;
+}
+String.prototype.mul=function(num){
+    var str=''
+    for(var i=0;i<num;i++){
+        str+=this;
+    };
+    return str;
+}
+String.prototype.toDict= function(divider=';'){
+//类似于对cookies的解析函数，将纯字符串的键=值对集合解析成集合，divider为分隔符。
+//例如 对 "name=nick&&key=123&&code=345" 进行解析，divider="&&",返回结果 { name:nick',key:'123',code:'345'}
+    var text=this.strip(divider);
+    var arr=text.split(divider);
+    var dic={};
+    for(var i=0;i<arr.length;i++){
+        [name,value]=arr[i].split('=');
+        dic[name]=value;
+    }
+    return dic;
+}
+String.prototype.getRows=function (t){
+//计算字符串中换行符数量
+    arr=t.split('\n')
+    return arr.length;
+}
+function getLastLine(text){
+    text=text.split('\n');
+    return text[text.length-1];
+}
+function getFirstLine(text){
+    text=text.split('\n');
+    return text[0];
+}
+function getLine(text,n){
+    num=0;
+    for(var i=0;i<n;i++){
+        if(text[i]=='\n')num++;
+    };
+    line =text.split('\n')[num];
+    //log(line);
+    return line;
+}
+function getHeadAndBody(text,from_start=true){
+    text=text.trim();
+    var pat=new RegExp('^\\/\\*[\\s\\S]*\\*\\/');
+    var m=text.match(pat);
+    if(!m)return [null,text];
+    var body=text.replace(pat,'');
+    var head=m[0];
+    return [head,body];
+}
+//----------------------------------------------//
+// document format conversion
+function escapeToHTML(str) {
+ var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'};
+ return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,t){return arrEntities[t];});
+}
+
+//-------------------------------------------------------//
+Array.prototype.wash=function(){
+    var new_arr=[]
+    for(var i=0;i<this.length;i++ ){
+        var s=this[i].trim();
+        if(s)new_arr.push(s);
+    }
+    return new_arr;
+}
+
+//------------------------------------------------//
+//常用函数
+function log(text){console.log(text);}
+function slog(text,str='',num=10){
+    console.log('*'.mul(num));
+    console.log(text);
+    console.log('*'.mul(num));
+}
+function flag(text){
+    slog('Hi,this is a flag. '+text);
+}</script>
+<script></script>
+<script>// base : jquery
+
+// 需定义button属性：status:默认状态，on:表示开启状态的信息，off:表示关闭状态的信息。
+//-----------Easy Switch--------------//
+
+TEST_MODE=true
+
+//base: jquery, easyJS(show and hide)
+if(screen.width<=500){smartphone=true;pc=false;}
+if(screen.width>500){pc=true;smartphone=false;}
+if(TEST_MODE){
+    if(smartphone)slog('smartphone');
+    if(pc)slog('pc');
+}
+function showMsg(msg_box,msg){
+    show(msg_box);
+    msg_box.html(msg);
+}
+function hideMsg(msg_box){
+    hide(msg_box);
+}
+
+function initMessageShow(sel){
+    var boxes=$(sel);
+    boxes.map((n,box)=>{
+        var box=$(box);
+        box.click(()=>{hide(box);});
+        box.click();
+        var hide_when=box.attr('hide-when');
+        if(hide_when=='click-anywhere'){
+            $(window).click(()=>{
+//                if(!box.hasClass('hidden'))hideMsg(box);
+            })
+        }
+    })
+}
+$(document).ready(()=>{
+    initMessageShow('.msg-box-tem');
+    initMessageShow('.msg-box');
+})
+//--------------------Easy-to-use api which act like switches------------//
+function changeVisibility(el){
+    if(el.hasClass('hidden')) el.removeClass('hidden');
+    else el.addClass('hidden');
+}
+
+//------------------Switches--------------//
+switches={};
+//---------------Supporting Functions-------------------//
+function getSource(el){
+    return $(el.attr('src-sel'));
+}
+function getTarget(el){
+    return $(el.attr('tar-sel'));
+}
+function getStatus(el){
+    return el.attr('status');
+}
+function getOnMsg(el){
+    return el.attr('on-msg');
+}
+function getOffMsg(el){
+    return el.attr('off-msg');
+}
+function getStatusAndMsg(el){
+    return [getStatus(el),getOnMsg(el),getOffMsg(el)];
+}
+function setStatusOn(el,on_msg){
+    el.attr('status','on');
+    el.text(on_msg);
+}
+function setStatusOff(el,off_msg){
+    el.attr('status','off');
+    //log('off:'+off_msg);
+    //log(el)
+    el.text(off_msg);
+}
+
+//-------------------Switch Class------------//
+//usage:
+//el: switch component; turnOn: function to turn on; turnOff: fnuction to turn off  ;
+//el: an el must contains two button inside it. These two button, one with class "switch-on" and another with "switch-off";
+//el: should own such properties: status(on/off)
+class Switch{ //el: jquery object
+    constructor(el,turnOn,turnOff){
+        this.el=el; // on_sel and off_sel
+        this.turnOn=turnOn;
+        this.turnOff=turnOff;
+        this.parse();
+    }
+    parse(){
+        if(this.el.attr('easy-switch')=='true')this.easy_switch=true;
+        else this.easy_switch=false;
+        if(this.easy_switch)this.doEasySwitch();// doEasySwitch
+        else this.doNormalSwicth();  //  doNormalSwitch
+    }
+//-----------NormalSwitch-----------//
+    doNormalSwicth(){
+
+        this.on_el=this.el.find('.switch-on');
+        this.off_el=this.el.find('.switch-off');
+
+        var self=this;
+        //log(this.el);
+        this.on_el.unbind('click').click(function(){self.turnOn();self.on_el.hide();self.off_el.show();});
+        this.off_el.unbind('click').click(function(){self.turnOff();self.off_el.hide();self.on_el.show();});
+        this.off_el.click();
+    }
+//-------EasySwitch-----------------//
+    doEasySwitch(){
+
+        this.on_msg=this.el.attr('on-msg');
+        this.off_msg=this.el.attr('off-msg');
+
+        this.checkStatus();
+        var self=this;
+        this.el.unbind('click').click(()=>{
+            if(self.status()=='on'){self.easyTurnOff();}
+            else self.easyTurnOn();
+        })
+    }
+    easyTurnOn(){
+        this.setStatus('on');
+        this.checkStatus();
+    }
+    easyTurnOff(){
+        this.setStatus('off');
+        this.checkStatus();
+    }
+    setStatus(stat){
+        this.el.attr('status',stat);
+    }
+    status(){
+        return this.el.attr('status');
+    }
+    checkStatus(){
+        if(!this.el.attr('status'))this.el.attr('status','off');
+        var status=this.status();
+        if(status=='on'){this.turnOn();this.el.html(this.off_msg);}
+        else{this.turnOff();this.el.html(this.on_msg);}
+    }
+}
+
+
+//----------------------------------------------//
+
+
+
+
+
+
+//----------------Speech Switch--------------------//
+//usage:
+//set properties:
+//class: switch-speakInnerText; tar-sel; status; on-msg; off-msg;
+function startSpeaking(el){
+    var speechSU = new window.SpeechSynthesisUtterance();
+    speechSU.text = getInnerContent(el);
+    window.speechSynthesis.speak(speechSU);
+    return speechSU;
+}
+function stopSpeaking(){
+    window.speechSynthesis.cancel();
+    console.log('停止朗读');
+}
+class SpeakSwitch extends Switch{
+    constructor(btn,tar){
+        super(btn,()=>startSpeaking(tar),()=>stopSpeaking());
+    }
+}
+function initSpeakInnerTextSwitch(){
+    var btn=$('.switch-speakInnerText');
+    var tar=getTarget(btn);
+    var s= new SpeakSwitch(btn,tar);
+}
+//------------全屏开关-------------------//
+//usage:
+//set properties:
+//class:switch-fullscreen;status:on/off;on-msg;off-msg;tar-sel;
+function getreqfullscreen(){
+    var root = document.documentElement
+    return root.requestFullscreen || root.webkitRequestFullscreen || root.mozRequestFullScreen || root.msRequestFullscreen
+}
+function getExitfullScreen(){
+    return document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen
+}
+function fullScreen(el){
+    el.css('max-height','800px');
+    el.css('overflow','hide');
+    getreqfullscreen().call(el[0]);
+}
+function exitFullScreen(el){
+    el.css('max-height','');
+    el.css('overflow','');
+    //log(hi);
+    getExitfullScreen().call(document);
+}
+
+class FullScreenSwitch extends Switch{
+    constructor(btn,tar){
+        //log(btn)
+        super(btn,()=>fullScreen(tar),()=>exitFullScreen(tar));
+    }
+}
+function initFullScreenSwitch(){
+    var btn=$('.switch-fullscreen');
+    var tar=getTarget(btn);
+    var s= new FullScreenSwitch(btn,tar);
+}
+
+//----------------View 开关--------------------//
+function switchView(src,tar){
+    hide(src);
+    show(tar);
+}
+function initViewSwitch(){
+    sws=$('.switch-view');
+    for(var i=0;i<sws.length;i++){
+        var sw=$(sws[i]);
+        var tar=getTarget(sw);
+        var src=getSource(sw);
+        var sssw=new Switch(sw,function(){switchView(src,tar)},function(){switchView(tar,src);});
+    }
+}
+//-----------------ShowSwitch--------->
+class ShowSwitch extends Switch{
+    constructor(btn,tar){
+        super(btn,()=>show(tar),()=>hide(tar));
+    }
+}
+function initShowSwitch(){
+    sws=$('.switch-show');
+    for(var i=0;i<sws.length;i++){
+        var sw=$(sws[i]);
+        var tar=getTarget(sw);
+        var sssw=new ShowSwitch(sw,tar);
+    }
+}
+//-------------------End ShowSwitch-----------------//
+//---------------DoubleViewSwitch----------------//
+function doubleViewSwitchTurnOn(btn,tar1,tar2){
+        tar1.removeClass('dbview-switch-off');
+        tar1.addClass('dbview-switch-on');
+        show(tar2);
+    }
+ function doubleViewSwitchTurnOff(btn,tar1,tar2){
+         tar1.removeClass('dbview-switch-on');
+         tar1.addClass('dbview-switch-off');
+         hide(tar2);
+    }
+class DoubleViewSwitch extends Switch{
+    constructor(btn,tar1,tar2){
+        super(btn,()=>{doubleViewSwitchTurnOn(btn,tar1,tar2)},()=>{doubleViewSwitchTurnOff(btn,tar1,tar2)});
+    }
+}
+function initDoubleViewSwitch(){
+    var btns=$('.switch-doubleview');
+    switches['doubleview']=[];
+    btns.map((n,btn)=>{
+        btn=$(btn);log(btn)
+        var tar1=$(btn.attr('tar-sel1'));
+        var tar2=$(btn.attr('tar-sel2'));
+        var sw=new DoubleViewSwitch(btn,tar1,tar2);
+        switches.doubleview.push(sw);
+    })
+}
+//--------------------End DoubleViewSwitch-----------------------//
+//------------------Commander------------------//
+class Commander{
+    constructor(cmd_input,btn,funcs,msg_box){
+        this.cmd_input=cmd_input;
+        this.btn=btn;
+        this.funcs=funcs;
+        this.local_funcs=this.getLocalFuncs();
+        this.msg_box=msg_box;
+        var self=this;
+        this.btn.click(()=>{
+            self.executeCmd();
+        });
+        this.cmd_input.keydown((e)=>{
+            if(e.keyCode==13){hideMsg(self.msg_box);self.btn.click();}
+        });
+    }
+    getCmd(){
+        var cmd=this.cmd_input.val();
+        return cmd;
+    }
+    parseCmd(cmd){
+        var cmd=cmd.split(' ');
+        cmd=cmd.wash();
+        return [cmd[0],cmd.slice(1,cmd.length)];
+    }
+    executeCmd(){
+        var cmd=this.getCmd();
+        if(cmd=='')return null;
+        var func_name;var params;
+        [func_name,params]=this.parseCmd(cmd);
+        var func=this.funcs[func_name];
+        if(!func) {
+            func=this.local_funcs[func_name];
+            if(!func){showMsg(this.msg_box,'命令错误！');return null;}
+        }
+        var p1=params.shift();
+        var ret=func(p1,params);
+        this.cmd_input.val('');
+        return ret;
+    }
+    getLocalFuncs(){
+        var funcs={
+            "alert":(text)=>{
+                alert(text);return true;
+            },
+            "js":(code)=>{
+
+            }
+        }
+        return funcs;
+    }
+}
+//---------------SwitchInitializer---------------------//
+class SwitchInitializer{
+    constructor(btn){
+        this.btn=btn;
+        this.initialState=this.status();
+        this.src=$(this.btn.attr('src-sel'));
+        this.tar=$(this.btn.attr('tar-sel'));
+        this.tar1=$(this.btn.attr('tar-sel1'));
+        this.tar2=$(this.btn.attr('tar-sel2'));
+        var tars=this.btn.attr('tar-sels');
+        this.tars=[];
+        if(tars){
+            tars=tars.split();
+            tars.map((n,ta)=>{
+                this.tars.push($(ta));
+            })
+        }
+
+    }
+    status(){
+        return this.btn.attr('status');
+    }
+}
+//-------------初始化-------------//
+function initSwitch(){
+    initFullScreenSwitch();
+    initSpeakInnerTextSwitch();
+    initViewSwitch();
+    initShowSwitch();
+    initDoubleViewSwitch();
+}
+$(document).ready(()=>{
+    initSwitch();
+})
+</script>
+<script>
+class WordQuerier{
+    constructor(base_url='http://www.iciba.com'){
+        this.base_url=base_url;
+    }
+    get(url){}
+    joinPath(latter){return this.base_url+'/'+latter;}
+    query(word){
+        var url=this.joinPath(word);
+        var re=$.post({url:'/proxy/get',data:JSON.stringify({url:url}),async:false});
+        return this.parse(re.responseText);
+    }
+    parse(html){
+       var doc=$(html);
+       var s1=doc.find('.container-left').find('.js-base-info').find('.in-base');
+       var item1=s1.find('.in-base-top').html()
+       var item2=s1.find('.base-list').html()
+       var item3=s1.find('.change').html();
+       var html='';
+       if(item1)html+=item1;
+       if(item2)html+=item2;
+       if(item3)html+=item3;
+       return html;
+    }
+}
+
+flag('query opend');
+querier=new WordQuerier();
+$(document).ready(()=>{
+    var blogs=$('.blog');
+    var msg_box=$('.msg-box');
+//    var test_div=$('.test-msg-box');
+    if(smartphone)return slog('smartphone : not execute this.');
+    blogs.map((n,b)=>{
+        b=$(b);
+        b.click(()=>{
+//            test_div.html('clicked');
+            var text=window.getSelection().toString();
+//            test_div.html('text selected:'+text);
+            if(text.trim()=='')return hideMsg(msg_box);
+//            test_div.html('text selected:'+text);
+            slog(text);
+            var text=querier.query(text);
+            showMsg(msg_box,text);
+//            test_div.html(text);
+        })
+    })
+})
+
+
+</script>
+
+
+    <style>
+
+
+
+
+.nav-header{
+    position:fixed;
+    z-index:1;
+    top:0px;
+    width:100%;
+    background:#175199;
+    color:white;
+    padding-top:1em;
+    padding-bottom:0.5em;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    -moz-box-shadow:0 0 10px rgba(0,0,0,0.7);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+#nav-menu{
+    margin-top:4.2em;
+}
+#blog-list-menu{
+    background:#175199;
+    color:white;
+}
+#blog-list-menu a{
+    color:white;
+}
+.blog-list-menu-item{
+    padding:0.2em 2em 0.2em 2em;
+}
+#article-list-container{
+    padding-top:7em;
+}
+.blog-mask{
+    height:13em;
+    overflow:hidden;
+}
+.fold-ctrl{
+    position:relative;
+    top:-3em;
+    color:#175199;
+    font-weight:700;
+    background:white;
+    background: -webkit-gradient(linear, 0 0, 0 20%, from(rgba(255, 255, 255, 0)), to(#fff));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#ffffff, GradientType=0);
+    height:3em;
+    margin-bottom:-3em;
+}
+.fold-on{
+
+}
+
+.dark-page{
+    background: rgba(14,16,15,0.95);
+    text-align:center;
+}
+.dark-page .link-box{
+    width:100%;
+    position:absolute;
+    top:30%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+.dark-page-item{
+    font-size:1.6em;
+    font-weight:100;
+    padding:0.2em 0.3em;
+    border:solid white 1px;
+    border:none;
+    border-radius:0.8em;
+    margin:0.2em 1em;
+}
+.dark-page .close-icon{
+    position:fixed;
+    top:20%;
+    display:inline-block;
+    right:10%;
+}
+
+
+.list-btn{
+    background:inherit;
+    color:inherit;
+    border:none;
+}
+.list-icon{
+    display:inline-block;
+    width:2em;
+    line-height:2px;
+}
+.list-icon .i{
+    display:inline-block;
+    width:1.5em;
+    height:2px;
+    background:white;
+    margin:0px;
+}
+
+.nav-list{
+    list-style:none;
+    float:right;
+    margin:-5px 15px 0px 10px;
+}
+.nav-list .nav-icon:hover{
+    transform:scale(1.3);
+}
+.nav-list .nav-icon a{
+    background:inherit;
+    color:inherit;
+}
+.nav-icon{
+    position: relative;
+    display: inline-block;
+    border: 1px solid;
+    border-color: rgba(255,255,255,0.35) rgba(255,255,255,0.45) rgba(255,255,255,0.55);
+    border-radius: 100%;
+    padding: 2px 6px;
+    margin: 0 .25em;
+    font-size: 12px;
+    font-size: 1.2rem;
+    letter-spacing: .5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 3px 18px rgba(0,0,0,0.2);
+    color: rgba(255,255,255,0.8);
+    transition: .2s;
+    cursor: pointer;
+    width:36px;
+    height:36px;
+}
+.nav-icon-bars{margin:-5px 15px 0px 10px;}
+@media(max-width:500px){
+.nav-list{display:none;}
+}
+@media(min-width:500px){
+.nav-icon-bars{display:none;}
+}</style>
+    <script>
+var home={};
+function initScreen(){
+    var width=screen.width;
+    var body=$('body');
+    if(width<=500)body.addClass('screen-sm');
+}
+function switch_fold_on(tar){
+    tar.addClass('blog-mask');
+}
+function switch_fold_off(tar){
+    tar.removeClass('blog-mask');
+}
+
+class SwitchFold extends Switch{
+    constructor(btn,tar){
+        super(btn,()=>{switch_fold_on(tar);},()=>{switch_fold_off(tar)});
+    }
+}
+function initBlog(blog){
+    var mask=blog.find('.wrapper1');
+    var unfold=blog.find('.switch-fold');
+    if(mask.height()>300){new SwitchFold(unfold,mask);show(unfold);}
+    else{hide(unfold);}
+
+}
+function initHome(){
+    home.blogs=$('.blog');
+    home.blogs.map((n,blog)=>{
+        var blog=$(blog);
+        initBlog(blog);
+    })
+
+}
+$(document).ready(()=>{
+    initHome();
+})</script>
+    <style>.msg-box-wrapper{
+width:100%;
+position:fixed;
+top:100px;
+padding:0;
+margin:0 auto;
+z-index:20;
+text-align:center;
+}
+.msg-box-wrapper2{
+    display:inline-block;
+    width:100%;
+    max-width:600px;
+}
+        .msg-box{
+padding:20px;
+background:rgba(0,0,0,0.8);
+color:white;
+        }
+        .test-msg-box{
+padding:20px;
+background:rgba(0,0,0,0.8);
+color:white;
+        }
+.site-logo-english-corner{
+    max-width:200px;width:50%;margin-top:-30px;margin-bottom:0px;
+}
+
+/*
+.i{
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}*/
+/*
+.hover-rotate{
+  animation-duration: 3s;
+  animation-name: rotate-forever;
+  animation-iteration-count:infinite;
+  animation-timing-function: linear;
+}*/
+
+
+@keyframes rotate-forever {
+  from {
+    transform:rotate(0deg);
+  }
+
+  to {
+    transform:rotate(360deg);
+  }
+}</style>
+
+</head>
+<body>
+<div class="msg-box-wrapper" style=""><div class="msg-box-wrapper2"><div class="msg-box hidden" hide-when="click-anywhere"></div></div></div>
+<div class="root" style="min-height:400px;">
+    <header class="fixed-top " id="home-header-wrapper">
+        <div class="nav-header ">
+            <img src="/imgs/logo.png" class="site-logo-english-corner" style="margin-left:3rem;">
+            <span class="f-right nav-icon nav-icon-bars hover-rotate"  onclick="changeVisibility($('#nav-page'))">
+                <i class="fa fa-bars"></i>
+            </span>
+            <ul class="nav-list" >
+                <li class="nav-icon" id="blog-list-menu-toggle"
+                    onclick="changeVisibility($('#blog-title-list-wrapper'))"><i class="fa fa-list" ></i></li>
+                <li class="nav-icon"><a href="/about"><i class="fa fa-user"></i></a></li>
+                <li class="nav-icon"><a href="/"><i class="fa fa-home fa-"></i></a></li>
+            </ul>
+
+
+            <div class="clear"></div>
+        </div>
+
+    </header>
+
+    <div id="article-list-container" class="text-align-center">
+        
+    </div>
+
+    <div info="Here are dark pages">
+        <div id="blog-title-list-wrapper" class="fixed-fillscreen hidden dark-page" style="overflow:auto;">
+            <div class="close-icon" id="btn-close-title-list" onclick="changeVisibility($('#blog-title-list-wrapper'))"><span><img
+                    src="/imgs/icons/close4.png"></span></div>
+            <div id="blog-title-list" class="link-box">
+                
+            </div>
+        </div>
+        <div id="nav-page" class="fixed-fillscreen hidden dark-page">
+            <div class="close-icon" id="btn-close-nav-page" onclick="changeVisibility($('#nav-page'))"><span><img
+                    src="/imgs/icons/close4.png"></span></div>
+            <div class="link-box">
+                <div class="dark-page-item"><a href="/">Home</a></div>
+                <div class="dark-page-item"><a href="/about">About</a></div>
+                <!--<div class="dark-page-item"><a href="/tags">Tags</a></div>-->
+                <!--<div class="dark-page-item"><a href="/archieves">Archieve</a></div>-->
+                <!--<div class="dark-page-item"><a href="/categories">Category</a></div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="page-body" style="min-height:470px;">
+        
+
+<style>
+
+
+body{
+    font-family:'PT Sans', sans-serif,serif,Cambria,Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman";
+    background:white;
+}
+
+.blog{
+    border-bottom:#175199 dotted 1px;
+    margin-top:0em;
+    margin-bottom:0em;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.2rem;
+    letter-spacing: -.003em;
+    display:inline-block;
+    text-align:left;
+    padding:0em;
+    font-family:serif,Cambria,Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman";
+
+}
+
+
+
+.wrapper1{
+    padding-bottom:0em;
+    overflow-x:auto;
+}
+.article-head{
+    padding-top:0.5rem ;
+    padding-left:1em;
+    padding-right:1em;
+    margin-bottom:-0.5rem;
+    color:#757575;
+}
+
+.article-head .title{
+    font-weight:700;
+    font-size:1.3rem;
+    color:black;
+    display:inline-block;
+    margin-block-start:0.6em;
+    margin-block-end:0.6em;
+    text-transform: uppercase;
+    margin:0em;
+}
+.article-head .title-description{
+    float:right;
+    display:inline-block;
+    font-size:0.7rem;
+}
+.article-body{
+    padding:0.3em;
+    padding-left:1em;
+    padding-right:0.9em;
+}
+.article-body p,.article-body div{
+    margin-block-start:0.6em;
+    margin-block-end:0.6em;
+    font-weight:200;
+    font-size:0.9em;
+}
+.article-body p{
+
+}
+.fold-ctrl-wrapper{
+    height:3em;
+}
+.fold-ctrl{
+    position:static;
+    width:100%;
+    text-align:center;
+    /*
+    color:#175199;
+    */
+    color:#175199;
+    font-weight:700;
+    background:#f0efed;
+    background: -webkit-gradient(linear, 0 0, 0 20%, from(rgba(255, 255, 255, 0)), to(rgba(255,255,255,1)));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#ffffff, GradientType=0);
+    height:3em;
+    margin-bottom:0em;
+    padding-top:0.5em;
+}
+
+@media (max-width: 576px) {
+
+ .blog{
+    text-rendering: optimizeLegibility;
+   /* font-family:Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman"; */
+    font-family: Helvetica,Droid Sans,Heiti SC,Droidsansfallback,serif,Cambria;
+    font-size:1rem;
+
+
+     }
+.blog .title{
+    font-size:1.2em;
+    font-weight:700;
+}
+.blog .article-body{
+    padding:0.3em;
+    padding-left:1em;
+    padding-right:0.9em;
+    word-spacing:0.1em;
+    letter-spacing:1px;
+    font-size:1em;
+    font-weight:normal;
+}
+.article-body h1,.article-body h2{font-size:1.2em;}
+.article-body h3,.article-body h4,.article-body h5,.article-body h6,{font-size:1.1em;}
+
+}
+@media (min-width: 576px) {
+ .blog{
+
+ }
+}
+
+.dark-page{
+    z-index:1;
+    background: rgba(14,16,15,0.95);
+    text-align:center;
+}
+.dark-page .link-box{
+    width:100%;
+    position:absolute;
+    top:30%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+.dark-page-item{
+    font-size:1.6em;
+    font-weight:100;
+    padding:0.2em 0.3em;
+    border:solid white 1px;
+    border:none;
+    border-radius:0.8em;
+    margin:0.2em 1em;
+}
+.dark-page .close-icon{
+    position:fixed;
+    top:20%;
+    display:inline-block;
+    right:10%;
+}
+.blog .article-head a{color:black;}
+.blog .title{font-size:1.25em;
+font-weight:bold;
+text-transform:capitalize;
+}
+.blog .title-description{
+font-size:0.9em;
+float:none;
+margin-bottom:0px;
+display:block;
+}
+.blog img{width:100%;}
+.blog p{text-indent:0em;}
+.blog .article-body::first-letter{
+    font-size:1.6em;
+}
+</style>
+<div style="text-align:center;">
+    <div style="height:100px;"></div>
+<div class="col-xs-12 col-md-7 blog" style=""  id="blog-2019523霓虹灯和月亮的距离">
+
+                <div class="wrapper1" style="">
+                    <div class="article-head" style="">
+                        <p class="title" >
+                            <a href="/p/2019523霓虹灯和月亮的距离.html">霓虹灯和月亮的距离</a>
+                        </p>
+                        <p class="title-description" >WP|2019-05-22</p>
+                    </div>
+
+                    <hr style="">
+                    <div class="article-body" style="">
+                        <p>北京的玉兰花开了。</p>
+<p></p>
+<p>　　赵慧文打算睡在办公室里。她的家在昌平，从单位回家接近两个半小时。每当下班后有什么活动，她都会在办公室里搭张床，节省出往返近五个小时的时间。充足的睡眠对她来说，是个奢侈品。</p>
+<p></p>
+<p>　　林震也要回单位过夜。他的家不算太远，在天坛附近。但是他单身一人，回家和在办公室的区别不大。接受完采访，他走在灯火辉煌的街头，仔细地辨认着方向。单位门口的武警认出了他，朝他笑了一下。</p>
+<p></p>
+<p>　　单位和“家”常常是可以互换的概念。对于中央公务员来说，以单位为家，有时不仅仅是“过夜”，更象征着他们始终要在一个紧密的环境下生存。很多时候，他们在反思自身的处境之外，更关注理想的实现、社会的进步，他们身上的进取/反思精神，也可以说是一种时代精神的体现。</p>
+<p></p>
+<p>&nbsp;</p>
+<p></p>
+<p>　　提 级</p>
+<p></p>
+<p>　　林震毕业后的第一份工作也令不少同龄人羡慕。他常常代表单位去人民大会堂听报告，去国家博物馆看大型历史展览，去部委参加各种会议。活动范围以紫禁城为圆心。不过，他心里还是觉得不稳当。</p>
+<p></p>
+<p>　　五年后，他考上了国家公务员，起点是很多基层公务员一生也未必够得上的职级，主任科员。这在他的家乡刮起了一阵舆论旋风，人人都说他越来越有出息，“一日看尽长安花”。</p>
+<p></p>
+<p>　　林震有自己的理想。这份理想不限于坐坐办公室、写写材料，他希望自己可以真正帮助那些需要帮助的人，把“正义”这个词落在每一个实处。</p>
+<p></p>
+<p>　　不过，真正投入工作后，他也发现理想实现之前，先有千头万绪的事要处理。有时候事情十分琐碎，有时候事情缺乏线索，这让他担心自己是不是真正理解了“理想”。</p>
+<p></p>
+<p>　　领导召集新来的同志们“聊一聊”，鼓励大家敞开心胸提意见。这也是“走群众路线”。林震准备了一份2000字的发言稿，他希望结合工作中的实际，好好反映一下自己遇到的一系列问题。这些问题里，有的是个人的困惑，有的是单位里存在的难题。</p>
+<p></p>
+<p>　　听着听着，他觉得自己的发言稿太尖锐了。他紧张地涂涂改改，一边参考着其他人的发言。一位男同事发出了不一样的声音，他投诉单位的图书馆午休时间关闭，而他很希望利用这段时间好好充电。林震觉得这个建议还算合理，听起来不那么空洞。最后，他把发言稿删去了四分之三，把那些大道理都删掉了。</p>
+<p></p>
+<p>　　投诉图书馆的同事遭到了反对。图书馆管理员们认为这样不对，单位每个人都享有午休时间，图书管理员也要有。这又让林震陷入了困惑。机关鼓励大家民主讨论，自由争鸣，但是也有一些难以打破的障碍。很多时候，两面都有道理，林震也会觉得难以抉择。这让他更加慎重地对待发表意见的时刻。</p>
+<p></p>
+<p>　　不过，更多时候，大家都以领导的意见为准。机关是按照科层制的方式运转的。在现代科层制下，下级对上级命令的习惯性服从，成为很多人心照不宣的规则。因而，如何“提级”也是很多年轻公务员的努力目标。因为更高的级别，意味着更高的自由。</p>
+<p></p>
+<p>　　过去的升迁，“优中选优”，隐藏着一定的“操纵空间”。为了杜绝人为因素，如今的“提级”严格了很多，要求也多了很多。对很多人来说，这种对提级的企盼也许一直延续到退休，但他们也不会轻易在别人面前表露。</p>
+<p></p>
+<p>&nbsp;</p>
+<p></p>
+<p>　　感 情</p>
+<p></p>
+<p>　　赵慧文是个性情中人。她性格直率，常常把感情表达出来。</p>
+<p></p>
+<p>　　一开始，她收到快递包裹，还喜欢拉着办公室的人一同“品鉴”，聊聊新买的“宝贝”如何。这份简单的喜悦被其他同事看在眼里，兜头泼了一盆冷水：“别看你现在买这买那还挺开心，等以后有了孩子，有你发愁的时候。”</p>
+<p></p>
+<p>　　赵慧文发现那个同事并不喜欢自己。冷嘲热讽常有，针对性是明确的，但内涵是含混的。这让她很难受。一年过去了，她渐渐想开了。这个环境过于压缩，这么多性情迥异的人，要在一个小集体里过完几十年，磕磕碰碰太常见了。</p>
+<p></p>
+<p>　　而最安全的办法，就是收敛自己的锋芒和感情，圆润得没有棱角，这样才能相安无事地开展工作。</p>
+<p></p>
+<p>　　这样的状态里，下属一般不会轻易得罪领导。同时，即使是领导，也不能随意抨击下属。因为，一旦关系搞僵，就会有其他人“看笑话”，这会让领导很难看。</p>
+<p></p>
+<p>　　公务员的选拔、考核、提级是一套井然有序的规则，每个人都严格遵照规则工作，并且养成了“习惯性敬业”的态度。这种“对工作负责”的虔敬，同时伴随着对“身败名裂”的担忧，已经内化为所有人的血肉，并且惊人地一致。</p>
+<p></p>
+<p>　　赵慧文记得刚来单位时，也有人“八卦”过去某位领导的“作风问题”。但明显的是，近几年“风清气正”，作风问题基本上消失了，大家都有意抹除个人的性别痕迹，更不会特意关注性别上的差异。</p>
+<p></p>
+<p>　　然而，“代际”的差别却是难以消除的。赵慧文是80后，她发现一种普遍性的情况：90后同事们更“吃得开”。他们如鱼得水地适应规则，并游刃有余地游走在规则的缝隙里。他们分得清任何一种该说话、不该说话或该说什么话的场合，为自己仅有但重大的福利—分宿舍、分房而不着痕迹地全力争取。</p>
+<p></p>
+<p>&nbsp;</p>
+<p></p>
+<p>　　矛 盾</p>
+<p></p>
+<p>　　赵慧文有时觉得自己是矛盾的。</p>
+<p></p>
+<p>　　一方面，她要在这套规则下生存，并维持自己身份性的荣誉；一方面，她觉得这套规则中有的又过于形式主义。但是，这些形式也许能帮助她顺利地实现理想和价值。</p>
+<p></p>
+<p>　　工作了两年，她也有一些成就感。她做的研究报告，调查扎实，真真正正反映了一些中国当下的问题，并得到了极高级别领导的重视。她觉得，原来自己做的事情，好像可以真的“影响到现实”。</p>
+<p></p>
+<p>　　但是一天连续开了几个会之后，她又有点泄气。因为会议总是开不完的。</p>
+<p></p>
+<p>　　林震走在五四大街上，会想起自己来到这里的初衷。那些澎湃的激情，改变现实的热望，为一种信仰甘愿牺牲的恒心，仿佛昨天还在他的身上。而在短暂的公务员生涯之后，他依然在努力，却不知为什么而努力。</p>
+<p></p>
+<p>　　事务性的事情太多，反而让他和理想越拉越远。但是，理想也许就建立在这些密密麻麻的小事上。千里之行，始于足下。他说，但是随即又犹豫了起来，“我们可能一辈子都要和这些材料、数据打交道。”</p>
+<p></p>
+<p>　　事业和家庭也是“矛盾”的。</p>
+<p></p>
+<p>　　他们二十五岁研究生毕业，工作了三五年，进入单位在三十岁上下。赵慧文单位里的单身同事非常多。他们经常忙得没有时间相亲。自由恋爱就更谈不上了。赵慧文帮其他部门的同事介绍了一个女孩子，结果说了三四个月，同事也没能找出时间去和女孩见面。</p>
+<p></p>
+<p>　　写材料、写报告，既是脑力劳动，也是体力劳动。对材料需求最强烈的部门，往往都是男性公务员“挑大梁”。遇到重要的会议，他们甚至得“连轴转”，办公室的门都迈不出去。</p>
+<p></p>
+<p>　　男性公务员择偶的范围特别小。对方要么是老师，要么也是公务员。一方面，这是因为他们本身非常认可主流价值观，更偏好“铁饭碗”的稳定感；一方面，这也是因为常年写材料、办会，他们更需要另一半专心于家庭，好弥补自己经常加班或夜不归宿的缺陷。</p>
+<p></p>
+<p>　　机关很少有不忙的时候。</p>
+<p></p>
+<p>　　林震的很多同事都是站着办公的。常年伏案写作，颈椎受到压迫，大多数人都患有颈椎病，上班时间不得不保持直立状态，强迫自己不要驼背低头。</p>
+<p></p>
+<p>不过，忙归忙，会写材料的人，也是站在“鄙视链”顶端的。很多时候，材料会提交给更高级别的领导，或直接成为领导的讲话稿。这也象征着地位和重要性。其次是能办会，行政型人才，统筹兼顾。再次是混日子的人，如今几乎很少见到了。</p>
+<p></p>
+<p>　　夜里十点半，赵慧文回到单位，碰到了刚刚下班回家的领导。他骑着一辆自行车，向赵慧文摆手道别。赵慧文说，领导这么晚下班，是常有的事。她已经试着学会理解、同情这套规则里的人和行动。</p>
+<p></p>
+<p>　　科层制是管理的制度，不可能通过“解放”而被象征性地克服：人不可能摆脱管理及其背后的法律，因为这些东西似乎就是自由的最终保证。</p>
+<p></p>
+<p>　　据说是由于厄尔尼诺现象带来的暖冬，玉兰花开得比往年早。灰色围墙里，机关大楼透出一片灯光，融入了北京城的万家灯火。</p>
+<p></p>
+<p>　　（文中赵慧文、林震为化名）</p>
+                    </div>
+                </div>
+        <div class="fold-ctrl-wrapper">
+        <center class="fold-ctrl switch-fold" easy-switch="true" status="off" on-msg="Pull Up" off-msg="Read All"><span  tar-sel="#2019523霓虹灯和月亮的距离" folded-height="">Read All</span></center>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+    <div class="footer" >
+        <div class="divider" style="width:100%;height:3px;background:#175199;"></div>
+        <div class="divider" style="width:100%;">
+            <div class="text-align-center" style="padding:20px;background:#eeedeb;font-weight:200;">
+                <h3>END</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

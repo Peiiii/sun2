@@ -1,0 +1,24 @@
+<style>{%include "app/manage/alter.css"%}</style>
+<div class="editor " id="alter" style="min-height:34rem;width:100%;">
+    <div id="blog" style="width:100%;padding:20px;">{%if blogs%}
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <caption>Manage Your Blog</caption>
+            <th>blog list</th>
+            <th>operation</th>
+            {%for blog in blogs%}
+            <tr id="{{blog.id}}">
+                <td class="blog-title" >{{blog.title}}</td>
+                <td >
+
+                    <label onclick="deleteBlog('{{blog.id}}')"style="color:blue;padding-left:1em;">Delete </label>
+                        <label onclick="alterEditBlog('{{blog.id}}')" style="color:blue;padding-left:1em;">Edit</label>
+
+                </td>
+
+            </tr>
+            {%endfor%}
+        </table>
+        {%endif%}
+    </div>
+</div>
+<script>{%include "app/manage/alter.js"%}</script>

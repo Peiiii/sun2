@@ -1,0 +1,210 @@
+
+<style>
+
+
+body{
+    font-family:'PT Sans', sans-serif,serif,Cambria,Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman";
+  
+}
+
+.blog{
+    /*border-bottom:#175199 dotted 1px;*/
+    background: inherit;
+    /*
+    border: 1px solid gray;
+    border-radius: 1em;
+    */
+    color:#666;
+    margin-top:0em;
+    margin-bottom:0em;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.2rem;
+    letter-spacing: -.003em;
+    display:inline-block;
+    text-align:left;
+    padding:0em;
+    font-family:serif,Cambria,Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman";
+
+}
+
+
+
+.wrapper1{
+    padding-bottom:0em;
+    overflow-x:auto;
+}
+.article-head{
+    padding-top:0.5rem ;
+    padding-left:1em;
+    padding-right:1em;
+    margin-bottom:-0.5rem;
+    
+}
+
+.article-head .title{
+    font-weight:700;
+    font-size:1.3rem;
+    display:inline-block;
+    margin-block-start:0.6em;
+    margin-block-end:0.6em;
+    text-transform: uppercase;
+    margin:0em;
+    color:#999999;
+}
+.article-head .title-description{
+    float:right;
+    display:inline-block;
+    font-size:0.7rem;
+}
+.article-body{
+    padding:0.3em;
+    padding-left:1em;
+    padding-right:0.9em;
+}
+.article-body p,.article-body div{
+    margin-block-start:0.6em;
+    margin-block-end:0.6em;
+    font-weight:200;
+    font-size:0.9em;
+}
+.article-body p{
+
+}
+.fold-ctrl-wrapper{
+    height:2em;
+}
+.fold-ctrl{
+    position:static;
+    width:100%;
+    text-align:center;
+    /*
+    color:#175199;
+    */
+    color:#175199;
+    font-weight:700;
+    background:#f0efed;
+    background: -webkit-gradient(linear, 0 0, 0 20%, from(rgba(255, 255, 255, 0)), to(rgba(255,255,255,1)));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#ffffff, GradientType=0);
+    height:2em;
+    margin-bottom:0em;
+    padding-top:0.5em;
+}
+
+@media (max-width: 576px) {
+
+ .blog{
+    text-rendering: optimizeLegibility;
+   /* font-family:Times,"Garamond",Arial,"Georgia","Times New Roman","Times New Roman"; */
+    font-family: Helvetica,Droid Sans,Heiti SC,Droidsansfallback,serif,Cambria;
+    font-size:1rem;
+
+
+     }
+
+.blog .title{
+    font-size:1.2em;
+    font-weight:700;
+}
+.blog .article-body{
+    padding:0.3em;
+    padding-left:1em;
+    padding-right:0.9em;
+    word-spacing:0.1em;
+    letter-spacing:1px;
+    font-size:1em;
+    font-weight:normal;
+}
+.blog .a{cursor:pointer;}
+.article-body h1,.article-body h2{font-size:1.2em;}
+.article-body h3,.article-body h4,.article-body h5,.article-body h6,{font-size:1.1em;}
+
+}
+@media (min-width: 576px) {
+ .blog{
+
+ }
+}
+.blog .headline a{
+    text-transform:capitalize;
+    font-weight:normal;
+    font-style:normal;
+    font-family:none;
+    cursor:pointer;
+}
+.blog .title-description{
+float:none;margin-bottom:0px;
+display:block;
+}
+.blog .article-body{text-indent:2em;}
+.blog .article-body::first-letter{
+    font-size:1.6em;
+}
+.blog a{
+	color:inherit;
+}
+</style>
+
+<div class="col-xs-12 col-md-8 blog"   id="blog-{{blog.id}}">
+
+                <div class="wrapper1" style="">
+                    <div class="article-head headline" style="">
+                        <p class="title" >
+                            <a href="/p/{{blog.id}}.html">{{blog.title}}</a>
+                        </p>
+                        <p class="title-description" >{{blog.author}}|{{blog.date}}</p>
+                        <!--<div class="clearfix"></div>-->
+
+                    </div>
+                    <hr>
+                    <div class="article-body" style="">
+                        {{blog.digest}}<span><a href="/p/{{blog.id}}.html">...阅读全文</a></span>
+                    </div>
+                    
+                </div>
+
+        
+    </div>
+<script>
+
+var home={};
+function initScreen(){
+    var width=screen.width;
+    var body=$('body');
+    if(width<=500)body.addClass('screen-sm');
+}
+function switch_fold_on(tar){
+    tar.addClass('blog-mask');
+}
+function switch_fold_off(tar){
+    tar.removeClass('blog-mask');
+}
+
+class SwitchFold extends Switch{
+    constructor(btn,tar){
+        super(btn,()=>{switch_fold_on(tar);},()=>{switch_fold_off(tar)});
+    }
+}
+function initBlog(blog){
+    var mask=blog.find('.wrapper1');
+    var unfold=blog.find('.switch-fold');
+    if(mask.height()>300){new SwitchFold(unfold,mask);show(unfold);}
+    else{hide(unfold);}
+
+}
+function initHome(){
+    home.blogs=$('.blog');
+    home.blogs.map((n,blog)=>{
+        var blog=$(blog);
+        initBlog(blog);
+    })
+
+}
+$(document).ready(()=>{
+    initHome();
+})
+
+</script>

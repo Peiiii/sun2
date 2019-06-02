@@ -1,0 +1,37 @@
+
+<style>
+    body{
+        background:#3c3939;
+    }
+    .fold-ctrl{
+    position:relative;
+    top:-3em;
+    color:#175199;
+    font-weight:700;
+    background:white;
+    background: -webkit-gradient(linear, 0 0, 0 20%, from(rgba(255, 255, 255, 0)), to(#fff));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#ffffff, GradientType=0);
+    height:3em;
+    margin-bottom:-3em;
+}
+</style>
+<div class="col-xs-12 col-md-6 blog" style="margin-bottom:20px;display:inline-block;text-align:left;"  id="blog-{{blog.id}}">
+        <div class="wrapper1" style="background:white;padding:0.5em;">
+            <div class="wrapper2" style="border:#a79d9d solid 0.08em;background:black;padding:0.2em ;">
+                <div class="wrapper3" style="background:#e8e5d4;color:#343530;padding-bottom:3em;overflow-x:auto;">
+                    <div class="article-head" style="padding:0.3em;padding-left:1.2em;padding-right:1.2em;">
+                        <h3>{{blog.title}}</h3>
+                        <h3 style="float:right">ZERO</h3>
+                    </div>
+                    <hr>
+                    <div class="article-body" style="padding:0.3em;padding-left:0.5em;padding-right:0.5em;">
+                        {{blog.html}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center class="fold-ctrl switch-fold" easy-switch="true" status="on" on-msg="收起" off-msg="展开阅读全文"><span  tar-sel="#{{blog.id}}" folded-height="">展开阅读全文</span></center>
+    </div>

@@ -1,0 +1,136 @@
+<style>{%include "pages/manage/editor.css"%}</style>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<hr>
+<div class="editor " id="editor" style="width:100%;">
+    <div style="width:100%;height:calc(100% - 1rem);">
+        <div status="off">
+
+            <div class=" btn-group btn-group-sm " id="edit-toolbar">
+                <button class="btn btn-secondary"><i class="fa fa-th-list" data-target="#editor-main-area"
+                                                     data-toggle="collapse"></i></button>
+                <button class="btn btn-primary" id="submit-btn">Submit</button>
+                <button class="btn btn-secondary" onclick="editor_app.log();">Log</button>
+                <button class="switch-doubleview btn btn-success " easy-switch="true" off-msg="Single View"
+                        on-msg="Double View"
+                        status="on" tar-sel1="#changeable" tar-sel2="#html-input">Exitview
+                </button>
+                <button id="btn-editable" class="switch-editable btn btn-warning" easy-switch="true"
+                        off-msg="Make Uneditable"
+                        on-msg="Make Editable" status="on" tar-sel1="#text-input" tar-sel2="#html-input">Swicth
+                </button>
+                <button class="btn-save"><i class="fa fa-floppy-o" title="保存"></i></button>
+                <button class="bg-primary" id="blog-list-menu-toggle" data-toggle="collapse"
+                        data-target="#more-input-list">
+                    <span style="display:inline-block;width:2em;line-height:1px;">
+                        <div style="display:inline-block;width:1.5em;height:1px;background:white;margin:0px;"></div>
+                        <div style="display:inline-block;width:1.5em;height:1px;background:white;margin:0px;"></div>
+                        <div style="display:inline-block;width:1.5em;height:1px;background:white;margin:0px;"></div>
+                    </span>
+                </button>
+            </div>
+            <hr>
+            <div id="editor-main-area" class="collapse show" style="min-height:30rem;">
+                <div class="" id="info-bar" info="keys-input-area">
+                    <div class="collapse" id="more-input-list">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Author:</span></div>
+                            <input id="author-input" class=" form-control input key-input" key="author" type="text"
+                                   placeholder="input author..." value="ZERO">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Format:</span></div>
+                            <select class=" form-control input key-input" key="format_used" type="text"
+                                    placeholder="input author..." value="">
+                                <option value="text/markdown" selected="true">text/markdwon</option>
+                                <option value="text/plain">text/html</option>
+                                <option value="text/html">text/plain</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">keywords:</span></div>
+                            <input class=" form-control input key-input" key="keywords" type="text"
+                                   placeholder="input author...">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">description:</span></div>
+                            <input class=" form-control input key-input" key="description" type="text"
+                                   placeholder="input author...">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">digest:</span></div>
+                            <input class=" form-control input key-input" key="digest" type="text"
+                                   placeholder="input author...">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">mood:</span></div>
+                            <input class=" form-control input key-input" key="mood" type="text"
+                                   placeholder="input author...">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">status:</span></div>
+                            <input class=" form-control input key-input" key="status" type="text"
+                                   placeholder="input author...">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">visible:</span></div>
+                            <select class=" form-control input key-input" key="visible" type="text"
+                                    placeholder="input author...">
+                                <option value="true" selected="true">true</option>
+                                <option value="false">false</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text">Title:</span></div>
+                        <input id="title-input" class=" form-control input key-input" key="title" type="text"
+                               placeholder="input title...">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text">Category:</span></div>
+                        <input id="cate-input" class=" form-control input key-input" key="category" type="text"
+                               placeholder="input category...">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text">Tags</span></div>
+                        <input id="tags-input" class=" form-control input key-input" key="tags" type="text"
+                               placeholder="input tags...">
+                    </div>
+                </div>
+                <div id="changeable" style="width:100%;">
+                    <!--<div id="text-input" class="form-control key-input" key="text" spellcheck="false">/*format=md*/-->
+                    <!--</div>-->
+                    <div class="" style="min-height:200px;max-height:800px;width:100%;overflow-y:auto;">
+                        <div class="col hidden bg-info input f-left key-input" key="text" id="text-input" contenteditable="true" spellcheck="false" info="md输入"
+                             style="height:100%;width:50%;min-height:400px;max-height:450px;overflow-y:auto;">{%if blog%}{{blog.content}}{%endif%}
+                        </div>
+
+                        <textarea id="md-input" style="width:50%;min-height:400px;max-height:450px;"  class="f-left md-input form-control key-input" key="md"
+                              spellcheck="false"></textarea>
+                        <div class="col bg-warning content-area f-left md-preview-box" id="md-preview-box" info="md预览"
+                             style="height:100%;width:50%;min-height:400px;max-height:450px;overflow-y:auto;">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                    <div id="html-input hidden" contenteditable="true" class="key-input html-input" key="html"
+                         style="">
+                        {%if content%}
+                        {{content}}
+                        {%endif%}
+                    </div>
+                    <div class="clear"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>{%include "lib/js/myMarkdown.js"%}</script>
+<script>{%include "pages/manage/editor3/editor.js"%}</script>

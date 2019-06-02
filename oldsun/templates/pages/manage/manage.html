@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {%include "pages/manage/include.html"%}
+    <style>{%include "pages/manage/manage.css"%}</style>
+    <script>{%include "pages/manage/manage.js"%}</script>
+    <script>{%include "pages/manage/request.js"%}</script>
+</head>
+<body class="">
+<div class="msg-box-tem bg-warning"
+     style="font-size:1.5em;position:fixed;top:40%;left:40%;padding:0.5em 2em 0.5em 2em;z-index:10"></div>
+<div class="row" id="root">
+    <div class="col-xs-2 col-md-2 bg-book h-p100 pad-0" style="float:left;">
+        <div id="sidebar">
+            <div style="width:100%;" id="app-menu">
+                <ul class="list-group">
+                    <li class="list-group-item"><h1 class="">Ablog</h1></li>
+                    <li class="list-group-item"><a href="#editor"> Editor</a></li>
+                    <li class="list-group-item"><a href="#alter"> Alter</a></li>
+                    <li class="list-group-item"><a href="#resources"> Resources</a></li>
+                    <li class="list-group-item"><a href="#file_explorer"> File Explorer</a></li>
+                    <li class="list-group-item"><a href="/"> Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-10 pad-0" style="position:fixed;right:0em;height:100%;overflow:auto;">
+        <div id="ctrl-bar" >
+            <div class="input-group">
+                <input type="text" class="cmd-input form-control" placeholder="input something">
+                <div class="input-group-append">
+                    <button class="cmd-btn btn btn-outline-primary" id="cmd-btn">Command</button>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="app-box">
+            {%include "pages/manage/file_explorer/file_explorer.html"%}
+            {%include "pages/manage/resources/resources.html"%}
+            {%include "pages/manage/editor3/editor.html"%}
+            {%include "pages/manage/alter.html"%}
+            {%include "pages/manage/home.html"%}
+        </div>
+    </div>
+</div>
+</body>
+</html>

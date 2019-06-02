@@ -1,0 +1,76 @@
+
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>{%include "lib/js/myMarkdown.js"%}</script>
+
+<div class="editor" id="editor" style="height:100%;width:100%;">
+    <div class="bg-primary " info="侧边栏" style="height:100%;width:16%;float:left;">
+
+    </div>
+    <div class="bg-dark " id="editor_app" info="正中栏" style="height:100%;width:100%;" {%if
+         edit%}edit="true" {%endif%}{%if blog%} blog_id="{{blog.id}}{%endif%}">
+        <div class="rw bg-danger title-input" id="title" contenteditable="true" info="标题"
+             style="width:100%;height:5rem;">{%if blog%}{{blog.name}}{%endif%}
+        </div>
+        <div class="alert alert-info hidden msg-box-tem" id="message" style="position:absolute;top:0px;z-index:1;"></div>
+        <div class="rw bg-gray" info="工具栏" id="tool-bar" style="width:100%;">
+            <div class="btn-bar f-left">
+                <button class="tool-bar-btn" id="submit">提交</button>
+                <button class="tool-bar-btn switch-show" easy-switch="true" status="off"
+                        off-msg="隐藏快照" on-msg="添加快照" tar-sel="#summary-area" id="add-summary">添加快照
+                </button>
+                 <button class="tool-bar-btn switch-preview" easy-switch="true" status="hold"
+                        off-msg="退出预览" on-msg="预览" tar-sel="#output" src-sel="#input" id="preview-switch">预览
+                </button>
+                <button class="tool-bar-btn switch-show" easy-switch="true" status="on"
+                        off-msg="隐藏标题" on-msg="显示标题" tar-sel="#title" id="hide-title">Add Summary
+                </button>
+            </div>
+
+
+            <!--<div class="btn-bar f-right">-->
+            <select class="tool-bar-btn f-right" id="is_public" style="margin-right:-3.5px;" name="is_public" {%if
+                    blog%}value="{{blog.public}}" {%endif%}>
+                <option value="1">公开</option>
+                <option value="0">私密</option>
+            </select>
+            <select class="tool-bar-btn f-right" id="type" name="type" {%if blog%}value="{{blog.type}}" {%endif%}>
+                <option value="text/markdown">Markdown</option>
+                <option value="text/plain">Plain-text</option>
+                <option value="text/html">HTML</option>
+            </select>
+            <div id="label-area" class=" label-area f-right" style="max-height:2rem;">
+                <input id="label-input" class="label-input" placeholder="input label">
+                <button id="label-input-assure" class="hidden">确定</button>
+                <ul id="label-list" class=" label-list f-right">
+                    {%if blog%}
+                    {%for l in blog.labels%}
+                    <li class="label-entry f-left"><span class="label label-primary">{{l}}</span></li>
+                    {%endfor%}
+                    {%endif%}
+                </ul>
+            </div>
+            <!--</div>-->
+        </div>
+        <div class="summary-area bg-danger hidden input" contenteditable="true" style="min-height:3rem;width:100%;z-index:1;"
+             id="summary-area">
+            {%if blog%}{{blog.summary}}{%endif%}
+        </div>
+        <div class="" style="min-height:200px;max-height:800px;width:100%;overflow:auto;">
+            <div class="col bg-info input f-left" id="input" contenteditable="true" info="md输入"
+                 style="height:100%;width:50%;min-height:400px;">{%if blog%}{{blog.content}}{%endif%}
+            </div>
+            <div class="col bg-warning content-area f-left" id="output" info="md预览"
+                 style="height:100%;width:50%;min-height:400px;">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<script>
+    {%include "pages/manage/editor2/editor.js"%}
+</script>

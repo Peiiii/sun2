@@ -1,0 +1,63 @@
+.msg-box-wrapper{
+width:100%;
+position:fixed;
+top:100px;
+padding:0;
+margin:0 auto;
+z-index:20;
+text-align:center;
+}
+.msg-box-wrapper2{
+    display:inline-block;
+    width:100%;
+    max-width:600px;
+}
+        .msg-box{
+padding:20px;
+background:rgba(0,0,0,0.8);
+color:white;
+        }
+        .test-msg-box{
+padding:20px;
+background:rgba(0,0,0,0.8);
+color:white;
+        }
+.site-logo-english-corner{
+    max-width:200px;width:50%;margin-top:-30px;margin-bottom:0px;
+}
+
+/*
+.i{
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}*/
+/*
+.hover-rotate{
+  animation-duration: 3s;
+  animation-name: rotate-forever;
+  animation-iteration-count:infinite;
+  animation-timing-function: linear;
+}*/
+
+
+@keyframes rotate-forever {
+  from {
+    transform:rotate(0deg);
+  }
+
+  to {
+    transform:rotate(360deg);
+  }
+}

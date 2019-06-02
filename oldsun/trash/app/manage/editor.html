@@ -1,0 +1,50 @@
+<style>{%include "app/manage/editor.css"%}</style>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<div class="editor " id="editor" style="min-height:34rem;width:100%;">
+    <div style="width:100%;height:calc(100% - 1rem);">
+        <div status="off" style="border-top:1px solid gray;">
+
+            <div class=" btn-group btn-group-sm f-right" id="edit-toolbar" >
+                <button class="btn btn-primary" id="submit-btn">Submit</button>
+                <button class="switch-doubleview btn btn-success " easy-switch="true" off-msg="Single View" on-msg="Double View"
+                        status="on" tar-sel1="#changeable" tar-sel2="#html-input">Exitview
+                </button>
+                 <button id="btn-editable" class="switch-editable btn btn-warning" easy-switch="true" off-msg="Make Uneditable"
+                        on-msg="Make Editable" status="on" tar-sel1="#text-input" tar-sel2="#html-input">Swicth
+                </button>
+            </div>
+            <div class="" id="info-bar" >
+                <div class="input-group">
+                    <div class="input-group-prepend"> <span class="input-group-text">Title:</span></div>
+                    <input id="title-input" class=" form-control input" type="text" placeholder="input title...">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend"> <span class="input-group-text">Category:</span></div>
+                    <input id="cate-input" class=" form-control input" type="text" placeholder="input category...">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend"> <span class="input-group-text">Tags</span></div>
+                    <input id="tags-input" class=" form-control input" type="text" placeholder="input tags...">
+                </div>
+            </div>
+
+        </div>
+        <div id="changeable" style="width:100%;">
+            <textarea id="text-input" class="form-control" spellcheck="false">/*format=md*/</textarea>
+            <div id="html-input" contenteditable="true"
+                 style="">
+                {%if content%}
+                {{content}}
+                {%endif%}
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+</div>
+<script src="/js/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>{%include "app/manage/editor.js"%}</script>

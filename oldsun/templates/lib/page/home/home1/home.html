@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{config.site_name}}</title>
+    <meta name="keywords" content="wp的博客">
+    <meta name="description" content="WP的博客">
+    {%include "lib/includes/power_include.html"%}
+
+    <style>{%include "lib/page/home/home1/home.css"%}</style>
+    <script>{%include "pages/home/home.js"%}</script>
+    <style>{%include "lib/css/more_style.css"%}</style>
+<style>
+.page-footer{
+	padding:0px;background:#175199;font-weight:200;color:white;width:100%;
+}
+.divider{
+	width:100%;height:3px;background:#175199;
+}
+</style>
+</head>
+<body>
+<div class="msg-box-wrapper" style=""><div class="msg-box-wrapper2"><div class="msg-box hidden" hide-when="click-anywhere"></div></div></div>
+<!--<div class="msg-box-wrapper" style=""><div class="msg-box-wrapper2"><div class="test-msg-box" hide-when="click-anywhere">Test Here</div></div></div>-->
+<div class="home" style="min-height:500px;">
+    {%include "lib/page/home/home1/site_header.html"%}
+    <div id="blog-title-list-wrapper" class="fixed-fillscreen hidden dark-page" style="overflow:auto;">
+            <div class="close-icon" id="btn-close-title-list" onclick="changeVisibility($('#blog-title-list-wrapper'))"><span><img
+                    src="/imgs/icons/close4.png"></span></div>
+            <div id="blog-title-list" class="link-box" style="text-align:left;font-size:1.2rem;">
+                {%for blog in blogs%}
+                <div class="blog-title-list-item dark-page-item" style="font-size:1.2rem;"><a href="#blog-{{blog.id}}"
+                                                                    onclick="$('#btn-close-title-list').click();">{{blog.title}}</a>
+                </div>
+                {%endfor%}
+            </div>
+    </div>
+    <div id="nav-page" class="fixed-fillscreen hidden dark-page">
+        <div class="close-icon" id="btn-close-nav-page" onclick="changeVisibility($('#nav-page'))"><span><img
+                src="/imgs/icons/close4.png"></span></div>
+        <div class="link-box">
+            <div class="dark-page-item"><a href="/">Home</a></div>
+            <div class="dark-page-item"><a href="/about">About</a></div>
+            <!--<div class="dark-page-item"><a href="/tags">Tags</a></div>-->
+            <!--<div class="dark-page-item"><a href="/archieves">Archieve</a></div>-->
+            <!--<div class="dark-page-item"><a href="/categories">Category</a></div>-->
+        </div>
+    </div>
+
+</div>
+<div class="divider mode" style=""></div>
+<div class=" page-footer mode" style="">
+    <div class="text-align-center mode" style="">
+        <h3>END</h3>
+    </div>
+</div>
+</body>
+</html>

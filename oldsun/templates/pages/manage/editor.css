@@ -1,0 +1,51 @@
+
+
+
+#text-input{
+    border-radius:0;
+}
+#html-input{
+    overflow:auto;
+    padding:2em;
+    border:none;
+    border-bottom:1px solid gray;
+}
+.screen-md #text-input{
+    width:50%;
+    height:29.2rem;
+    background:
+    inherit;
+    color:inherit;
+    padding:0.5em;
+    float:left;
+    border:none;
+    border-bottom: 1px solid gray;
+}
+.screen-md #html-input{
+    border:none;
+    border-bottom: 1px solid gray;
+    width: 50%;
+    height:29.2em;
+    float:left;
+}
+.screen-md .dbview-switch-off #text-input{
+    width:100%;
+}
+.screen-xs #text-input{
+    width:100%;
+    height:15rem;
+    background:inherit;
+    color:inherit;
+    padding:1em 2em;
+    border:none;
+    border-bottom:gray solid 1px;
+    border-top:gray solid 1px;
+}
+.screen-xs #html-input{
+    background:#f8f8f8;
+    padding: 1em 2em;
+    width: 100%;
+    height:15rem;
+    border:none;
+    border-bottom:gray solid 1px;
+}

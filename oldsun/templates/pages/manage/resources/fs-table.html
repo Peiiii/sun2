@@ -1,0 +1,26 @@
+<i class="fa fa-chevron-down" data-target="#fs-table" data-toggle="collapse">drop</i>
+<table id="fs-table" class="fs-table collapse">
+  <caption><%dir.name%></caption>
+  <thead>
+    <tr>
+      <th scope="col">文件名</th>
+      <th scope="col">类型</th>
+      <th scope="col">文件大小</th>
+      <th scope="col">修改时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%dir.name%></th>
+        <td><%dir.type%></td>
+      <td><%dir.size%>&nbsp; Bytes</td>
+      <td><%dir.fatime%></td>
+    </tr>
+    <tr v-for="item in dir.children">
+      <th scope="row"><%item.name%></th>
+      <td><%item.type%></td>
+      <td><%item.size%>&nbsp; Bytes</td>
+      <td><%item.fatime%></td>
+    </tr>
+
+</table>

@@ -1,0 +1,26 @@
+<header class="fixed-top " id="home-header-wrapper">
+        <div class="nav-header ">
+            <img src="/imgs/logo.png" class="site-logo-english-corner" style="margin-left:3rem;">
+            <span class="f-right nav-icon nav-icon-bars hover-rotate"  onclick="changeVisibility($('#nav-page'))">
+                <i class="fa fa-bars"></i>
+            </span>
+            <ul class="nav-list" >
+                <li class="nav-icon" id="blog-list-menu-toggle"
+                    onclick="changeVisibility($('#blog-title-list-wrapper'))"><i class="fa fa-list" ></i></li>
+                <li class="nav-icon"><a href="/about"><i class="fa fa-user"></i></a></li>
+                <li class="nav-icon"><a href="/"><i class="fa fa-home fa-"></i></a></li>
+            </ul>
+
+
+            <div class="clear"></div>
+        </div>
+
+    </header>
+
+    <div id="article-list-container" class="text-align-center">
+        {%if blogs%}
+        {%for blog in blogs%}
+        {%include "lib/html/blog_shortcut.html"%}
+        {%endfor%}
+        {%endif%}
+    </div>

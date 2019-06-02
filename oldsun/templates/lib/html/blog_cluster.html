@@ -1,0 +1,44 @@
+{% extends "lib/html/top_page_base.html"%}
+{%block site_body%}
+
+<style>
+ #categories .list-icon{
+    margin:0em 0em 0em 0em;
+    padding:0em;
+    line-height:0em;
+}
+ #categories .list-icon .i{
+    background:blue;
+    height:1px;
+    margin:0px;
+    padding:0px;
+    }
+</style>
+<style>{%include "pages/categories/categories.css"%}</style>
+<div style="text-align:center;padding-top:80px;min-height:450px;" id="categories">
+    <div style="display:inline-block;">
+        <div>
+{% for citem in cluster%}
+        <div class="category-item" style="text-align:center;">
+            <span><strong>    {{citem.name}}({{citem.length}})</strong></span>
+            <button data-toggle="collapse" data-target="#cate-list-{{citem.name}}" style="padding:0px;margin:0px;" ><span class="list-icon">
+                <span class="i"></span>
+                <span class="i"></span>
+                <span class="i"></span>
+            </span></button>
+            <hr>
+            <div class="cate-item-list collapse show" id="cate-list-{{citem.name}}">
+                <div style="display:inline-block;">
+                {%for blog in citem.blogs%}
+                <div class="cate-item-wrapper"><a href="/p/{{blog.id}}.html">{{blog.title}}</a></div>
+                {%endfor%}
+                </div>
+            </div>
+
+        </div>
+{%endfor%}
+        </div>
+    </div>
+</div>
+{%include "pages/categories/categories.js"%}
+{%endblock%}

@@ -1,0 +1,31 @@
+.sidebar{
+
+}
+.screen-xs #sidebar{
+    display:none;
+}
+.screen-xs #root{
+    padding:1em;
+}
+.menu-item{
+    padding:0.5em 2em 0.5em 2em;
+    width:100%;
+    border:solid 1px var(--dblue)
+}
+#ctrl-bar{
+    position:fixed;
+    top:0em;
+    right:0em;
+    width:83.3333%;
+    z-index:1;
+    padding-right:0.5em;
+}
+.screen-xs #ctrl-bar{
+    width:100%;
+}
+#editor{
+    padding-top:2.2em;
+}
+#alter{
+    border-top:solid 1px gray;
+}

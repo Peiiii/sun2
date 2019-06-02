@@ -1,0 +1,79 @@
+
+<style>
+    .site-logo-english-corner:hover{
+        max-width:50%;
+
+    }
+	.nav-icon{
+		float:right;
+	}
+	.nav-list{
+	background:#175199;width:100%;margin:0px;
+	}
+.dm{
+	background:black ! important;
+	color:white !important;
+}
+</style>
+<header class="fixed-top mode" id="home-header-wrapper">
+        <div class="nav-header mode" style="background:white;">
+			<div style="height:0px;"></div>
+            <ul class="nav-list pc-hidden mode" >
+                <li class="nav-icon" id="blog-list-menu-toggle"
+                    onclick="changeVisibility($('#blog-title-list-wrapper'))"><i class="fa fa-bars fa-lg" ></i></li>
+                <li class="nav-icon"><a href="/about"><i class="fa fa-user fa-lg"></i></a></li>
+                <li class="nav-icon switch-dark-mode"><i class="fa fa-moon-o fa-lg"></i></li>
+            </ul>
+
+            <ul class="nav-list mode sm-hidden"  >
+                <li class="nav-icon" id="blog-list-menu-toggle"
+                    onclick="changeVisibility($('#blog-title-list-wrapper'))"><i class="fa fa-bars fa-lg" ></i></li>
+                <li class="nav-icon"><a href="/about"><i class="fa fa-user fa-lg"></i></a></li>
+                <li class="nav-icon"><a href="/"><i class="fa fa-home fa-lg"></i></a></li>
+				<li class="nav-icon switch-dark-mode"><i class="fa fa-moon-o fa-lg"></i></li>
+
+            </ul>
+
+
+            <div class="clear"></div>
+        </div>
+
+    </header>
+
+    <div id="article-list-container" class="text-align-center">
+        {%if blogs%}
+        {%for blog in blogs%}
+        {%include "lib/page/home/home3/blog_shortcut.html"%}
+        <hr style="color:aquamarine">
+        {%endfor%}
+        {%endif%}
+    </div>
+	<script>
+	function initDarkMode(){
+		var btns=$('.switch-dark-mode');
+		btns.map((n,b)=>{
+			var btn=$(b);
+			btn.click(()=>{
+				$('body').addClass('dm');
+				$('.mode').addClass('dm');
+			})
+		})
+	}
+	$(document).ready(()=>{
+		initDarkMode();
+	})
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

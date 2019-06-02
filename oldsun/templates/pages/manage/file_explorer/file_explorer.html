@@ -1,0 +1,89 @@
+<!--<style>{%include "pages/manage/file_explorer/file_explorer.css"%}</style>-->
+<div class="msg-box" style="position:fixed;top:200px;left:40%;width:20%;right:40%;"></div>
+<div style="height:80px;"></div>
+
+<div id="file_explorer" class="running-app-box " ref="app">
+    <div class="light-padding-box">
+        <div class="hidden filename-box"><%path.path%></div>
+    </div>
+    <div class="divider"></div>
+ <i class="fa fa-chevron-down" data-toggle="collapse" data-target="#app-backdrop">文件资源管理器</i>
+    <div class="app-backdrop collapse" id="app-backdrop">
+        <div class="app-content-area centor-block drop-white">
+            <div class="message-box alert alert-info" style=" display:none;"></div>
+            <div rows="10" class="centor-block  app-content">
+                <div class="btn-group">
+                    <button class="btn btn-default btn-sm btn-back" style="float:left;" @click="pathBackward"><span
+                            class="fa fa-backward"></span></button>
+                    <button class="btn btn-default btn-sm btn-submit" style="float:left;" @click="toPathTop"><span
+                            class="fa fa-home"></span></button>
+                    <button class="btn btn-default btn-sm btn-back" style="float:right;" @click="pathBackward"><span
+                            class="fa fa-folder"></span></button>
+                    <button class="btn btn-default btn-sm btn-submit" style="float:right;" @click="toPathTop"><span
+                            class="fa fa-file"></span>
+                    </button>
+                    <button class="btn btn-default btn-sm " style="float:right;" @click="createNewDir"><span
+                            class="fa fa-plus-square" title="新建文件夹"></span>
+                    </button>
+                    <button class="btn btn-default btn-sm " style="float:right;" @click="createNewFile"><span
+                            class="fa fa-plus-circle" title="新建文本文件"></span>
+                    </button>
+                </div>
+
+
+                <table class="table table-condensed table-striped table-bordered table-sm table-hover table-reponsive"
+                       style="color:white">
+                    <caption class="badge badge-primary"><%path.name%></caption>
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">文件名</th>
+                        <th scope="col">类型</th>
+                        <th scope="col">文件大小</th>
+                        <th scope="col">修改时间</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="d in path.dirs">
+                        <td class="bg-success" scope="row" colspan="0.5" :path="d.path" @dblclick="pathForward" :id="d.name"><i
+                                class="fa fa-folder"></i><span class="path-name"><%d.name%></span>
+                        </td>
+                        <td class="bg-danger">
+                            <small><%d.type%></small>
+                        </td>
+                        <td class="bg-warning">
+                            <small><%d.size%> Bytes&nbsp;&nbsp;</small>
+                        </td>
+                        <td class="bg-info">
+                            <small><%d.fatime%>&nbsp;&nbsp;</small>
+                        </td>
+                        <td class="bg-secondary">
+                            <i class="fa fa-trash" title="删除" @click="execute" optype="rmdir" :path="d.path"></i>
+                            <i class="fa fa-pencil-square-o" title="重命名" @click="execute" optype="rename" :path="d.path" :head="'#'+d.name"></i>
+                        </td>
+                    </tr>
+                    <tr v-for="d in path.files">
+                        <td class="bg-success" scope="row" style="max-width:40%;" :path="d.path" @dblclick=""><i class="fa fa-file"></i><span class="path-name"><%d.name%></span>
+                        </td>
+                        <td class="bg-danger">
+                            <small><%d.type%></small>
+                        </td>
+                        <td class="bg-warning">
+                            <small><%d.size%> Bytes&nbsp;&nbsp;</small>
+                        </td>
+                        <td class="bg-info">
+                            <small><%d.fatime%>&nbsp;&nbsp;</small>
+                        </td>
+                        <td class="bg-secondary">
+                            <i class="fa fa-trash" title="删除" @click="execute" optype="remove" :path="d.path"></i>
+                            <i class="fa fa-pencil-square-o" title="重命名" @click="execute" optype="rename" :path="d.path"></i>
+                            <i class="fa fa-pencil" title="编辑文件" @click="execute" optype="edit" :path="d.path"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>{%include "pages/manage/file_explorer/file_explorer.js"%}</script>

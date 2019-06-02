@@ -1,0 +1,7 @@
+jinja2
+chardet
+aiohttp
+markdown
+requests
+bs4
+piudb>=0.1.6
